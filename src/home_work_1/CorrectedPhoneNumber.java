@@ -43,7 +43,10 @@ public class CorrectedPhoneNumber {
        String phoneNumber = String.format("(%c%c%c) %c%c%c-%c%c%c%c", inputArray[0], inputArray[1], inputArray[2],
                inputArray[3], inputArray[4], inputArray[5], inputArray[6], inputArray[7], inputArray[8], inputArray[9]);
         System.out.println(phoneNumber);
-        //System.out.println("(" + inputArray[0] + inputArray[1] + inputArray[2] + ") " + inputArray[3] + inputArray[4] + inputArray[5] + "-" + inputArray[6] + inputArray[7] + inputArray[8] + inputArray[9]);
+        /*
+        System.out.println("(" + inputArray[0] + inputArray[1] + inputArray[2] + ") " + inputArray[3] + inputArray[4] + inputArray[5] + "-" +
+        inputArray[6] + inputArray[7] + inputArray[8] + inputArray[9]);
+         */
 
     }
 }

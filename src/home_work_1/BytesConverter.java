@@ -12,7 +12,7 @@ public class BytesConverter {
 
         if (isInRange(inputBytes)){
             double res1 = inputBytes / 1024;
-            DecimalFormat df = new DecimalFormat("#.#");
+            DecimalFormat df = new DecimalFormat("#.###");
             String formattedRes = df.format(res1);
             System.out.println(inputBytes + " байт = " + formattedRes + " килобайт");
         }

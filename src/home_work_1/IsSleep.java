@@ -46,9 +46,9 @@ public class IsSleep {
             return;
         }
 
-        boolean canSleep = canSleep(weekday, vacation); //!вызываем метод и сохраняем результаты вызова функции
+        boolean sleepIn = sleepIn (weekday, vacation); //!вызываем метод и сохраняем результаты вызова функции
 
-        if (canSleep) {
+        if (sleepIn) {
             System.out.println("Спим сегодня? Да");
         } else {
             System.out.println("Спим сегодня? Нет");
@@ -56,7 +56,7 @@ public class IsSleep {
     in.close();
     }
 
-    public static boolean canSleep(boolean weekday, boolean vacation) {
+    public static boolean sleepIn(boolean weekday, boolean vacation) {
         return !weekday || vacation;
         /*
         это idea подсказала "'if' statement can be simplified", у меня было

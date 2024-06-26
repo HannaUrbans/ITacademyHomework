@@ -10,7 +10,6 @@ public class Converter {
         byte inputNumber = in.nextByte();
         in.close();
 
-        toBinaryString(inputNumber);
         System.out.println("Результат конвертации " + inputNumber + " в двоичную систему: " + toBinaryString(inputNumber));
     }
 
