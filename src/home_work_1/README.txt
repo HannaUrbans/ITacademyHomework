@@ -18,5 +18,3 @@
 
 Пункт 7 - class CorrectedPhoneNumber
 Пункт 8 - class Converter
-Пункт 9 - class
-Пункт 10 - class
