@@ -1,14 +1,17 @@
 package home_work_2.loops;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 public class MultiplyNumbersWithRec {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите положительное число");
-        long inputNumber = in.nextLong();
-        in.close();
+        if (args.length == 0) {
+            System.out.println("Ничего не введено в аргументах командной строки");
+            return;
+        }
+
+        // Получаем число из аргумента командной строки
+        long inputNumber = Long.parseLong(args[0]);
+
         long result;
 
         if (inputNumber <= 0) {

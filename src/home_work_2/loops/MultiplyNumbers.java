@@ -1,7 +1,6 @@
 package home_work_2.loops;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 /**
  * Перемножить числа от 1 до числа (включительно) введенного через аргумент к исполняемой программе.
@@ -12,17 +11,21 @@ import java.util.Scanner;
  */
 public class MultiplyNumbers {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите положительное число");
-        long inputNumber = in.nextLong();
-        in.close();
-        long result;
-        long k = 2;
+        if (args.length == 0) {
+            System.out.println("Ничего не введено в аргументах командной строки");
+            return;
+        }
+
+        // Получаем число из аргумента командной строки
+        long inputNumber = Long.parseLong(args[0]);
 
         if (inputNumber <= 0) {
             System.out.println("Введите положительное число");
             return;
         }
+
+        long result;
+        long k = 2;
 
         result = factorial(inputNumber);
         if (result == -1) {
