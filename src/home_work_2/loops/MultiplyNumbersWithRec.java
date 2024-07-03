@@ -3,14 +3,7 @@ package home_work_2.loops;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-/**
- * Перемножить числа от 1 до числа (включительно) введенного через аргумент к исполняемой программе.
- * Пример: Ввели 5, должно получиться в консоли: 1 * 2 * 3 * 4 * 5 = ответ
- * Проверки:
- * Число положительное, максимум long
- * Есть нюанс с переполнением, можно добавить проверки и сообщения пользователю.
- */
-public class MultiplyNumbers {
+public class MultiplyNumbersWithRec {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите положительное число");
@@ -23,7 +16,7 @@ public class MultiplyNumbers {
             return;
         }
 
-        result = factorial(inputNumber);
+        result = factorialWithRec(inputNumber);
         if (result == -1) {
             System.out.println("В результате умножения получилось слишком большое число для типа long");
         } else {
@@ -33,14 +26,21 @@ public class MultiplyNumbers {
         }
     }
 
-    public static long factorial(long number) {
-        long numberFactorial = 1;
-        for (long i = 1; i <= number; i++) {
-            numberFactorial *= i;
-            if (numberFactorial > Long.MAX_VALUE / i) {
+    public static long factorialWithRec(long number) {
+        long prevNumberFactorial = 0;
+
+        // Базовый случай (указывает, когда рекурсия должна завершиться)
+        if (number == 1) {
+            return 1;
+        } else {
+            // Рекурсивный случай (функция вызывает саму себя с аргументом `i - 1`)
+            prevNumberFactorial = factorialWithRec(number - 1);
+            //проверка на переполнение
+            if (number > Long.MAX_VALUE / prevNumberFactorial) {
                 return -1;
+            } else {
+                return number * prevNumberFactorial;
             }
         }
-        return numberFactorial;
-        }
     }
+}
