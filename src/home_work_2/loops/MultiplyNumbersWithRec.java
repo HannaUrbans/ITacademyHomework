@@ -9,7 +9,7 @@ public class MultiplyNumbersWithRec {
         System.out.println("Введите положительное число");
         long inputNumber = in.nextLong();
         in.close();
-        long result = 1;
+        long result;
 
         if (inputNumber <= 0) {
             System.out.println("Введите положительное число");
@@ -22,12 +22,19 @@ public class MultiplyNumbersWithRec {
         } else {
             DecimalFormat df = new DecimalFormat("#,###");
             String formattedResult = df.format(result);
-            System.out.println("Результат умножения чисел от 1 до " + inputNumber + " (включительно): " + formattedResult);
+
+            //выводим на экран ход вычислений
+            StringBuilder steps = new StringBuilder();
+            steps.append("1");
+            for (long k = 2; k <= inputNumber; k++) {
+                steps.append(" * ").append(k);
+            }
+            System.out.println(steps + " = " + formattedResult);
         }
     }
 
     public static long factorialWithRec(long number) {
-        long prevNumberFactorial = 0;
+        long prevNumberFactorial;
 
         // Базовый случай (указывает, когда рекурсия должна завершиться)
         if (number == 1) {

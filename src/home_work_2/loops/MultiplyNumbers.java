@@ -16,7 +16,8 @@ public class MultiplyNumbers {
         System.out.println("Введите положительное число");
         long inputNumber = in.nextLong();
         in.close();
-        long result = 1;
+        long result;
+        long k = 2;
 
         if (inputNumber <= 0) {
             System.out.println("Введите положительное число");
@@ -29,7 +30,14 @@ public class MultiplyNumbers {
         } else {
             DecimalFormat df = new DecimalFormat("#,###");
             String formattedResult = df.format(result);
-            System.out.println("Результат умножения чисел от 1 до " + inputNumber + " (включительно): " + formattedResult);
+
+            //выводим на экран ход вычислений, можно ли так или это костыль?
+            System.out.print(k - 1);
+            while (k <= inputNumber) {
+                System.out.print(" * " + k);
+                k++;
+            }
+            System.out.print(" = " + formattedResult);
         }
     }
 
@@ -42,5 +50,5 @@ public class MultiplyNumbers {
             }
         }
         return numberFactorial;
-        }
     }
+}
