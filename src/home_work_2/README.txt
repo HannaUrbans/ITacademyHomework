@@ -6,3 +6,8 @@
 
 1.3 - class MathPowAnalogue
 
+1.4 - class MultiplicationTillOverflow
+
+1.5 - class ExampleTasks
+
+
