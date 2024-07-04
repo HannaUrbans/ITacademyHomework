@@ -4,3 +4,5 @@
 
 1.2 - class MultiplyInsideNumber
 
+1.3 - class MathPowAnalogue
+
