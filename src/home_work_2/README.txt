@@ -10,4 +10,6 @@
 
 1.5 - class ExampleTasks
 
+1.6 - class Table
+
 
