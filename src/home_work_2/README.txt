@@ -12,4 +12,9 @@
 
 1.6 - class Table
 
+2.1 - class ArraysUtils
+2.1.1 - class ArrayFromConsoleExample
+2.1.2 - class ArrayRandomExample
+
+
 
