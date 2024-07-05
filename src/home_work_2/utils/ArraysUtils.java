@@ -46,6 +46,12 @@ public class ArraysUtils {
             Random randomNumber = new Random();
             myArray [i] = randomNumber.nextInt(maxValueExclusion+1);
         }
+
         return myArray;
     }
 }
+/**
+ *  for (int i = 0; i < size; i++) {
+ *             array[i] = random.nextInt(max * 2 + 1) - max; // Генерация случайного числа от -max до max
+ *         }
+ */
