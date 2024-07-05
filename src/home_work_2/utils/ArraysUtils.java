@@ -19,8 +19,10 @@ public class ArraysUtils {
 
         String[] elements = arrayEl.split(",");
         int[] inputArray = new int[size];
+
         if (size != elements.length) {
             System.out.println("Размер массива не совпадает с количеством введённых элементов");
+            return null; //чтобы не выдавать массив с нулями после ошибки
         } else {
             for (int i = 0; i < size; i++) {
                 inputArray[i] = Integer.parseInt(elements[i]);
