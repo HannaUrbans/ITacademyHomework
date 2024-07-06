@@ -23,7 +23,7 @@ public class MultiplyInsideNumber {
         //  2. проверка на целочисленность
         if (inputString.contains(".")) {
             //убираем точку, проходим по массиву
-            inputString = inputString.replaceFirst("\\.", ""); //ТАК МОЖНО? ИЛИ НАДО СДЕЛАТЬ СТРИНГБИЛДЕР? СТРИНГ ЖЕ НЕ ИМЕЕТ ПРАВО МЕНЯТЬСЯ
+            inputString = inputString.replaceFirst("\\.", "");
             for (char c : inputString.toCharArray()) {
                 if (!Character.isDigit(c)) {
                     System.out.println("Введено не число");
@@ -37,7 +37,7 @@ public class MultiplyInsideNumber {
         //  3. проверка на > 0
         if (inputString.startsWith("-")) {
             //убираем -, проходим по массиву
-            inputString = inputString.replaceFirst("\\-", ""); ////ТАК МОЖНО? ИЛИ НАДО СДЕЛАТЬ СТРИНГБИЛДЕР? СТРИНГ ЖЕ НЕ ИМЕЕТ ПРАВО МЕНЯТЬСЯ
+            inputString = inputString.replaceFirst("\\-", "");
             for (char c : inputString.toCharArray()) {
                 if (!Character.isDigit(c)) {
                     System.out.println("Введено не число");
