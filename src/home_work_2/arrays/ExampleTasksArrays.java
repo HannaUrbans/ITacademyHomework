@@ -23,7 +23,13 @@ public class ExampleTasksArrays {
         int firstNum = in.nextInt();
         System.out.println("Введите последнее число диапазона");
         int lastNum = in.nextInt();
-        System.out.println("Это массив, из которого удалили цифры от " + firstNum + " до " + lastNum + ": " + Arrays.toString(MakeArraySmall(myArray, firstNum, lastNum)));
+        if (lastNum <= firstNum)
+        {
+            System.out.println("Введите корректный интервал");
+        }
+        else {
+            System.out.println("Это массив, из которого удалили цифры от " + firstNum + " до " + lastNum + ": " + Arrays.toString(MakeArraySmall(myArray, firstNum, lastNum)));
+        }
 
         if (findDigitSum(myArray) == Long.MIN_VALUE) {
             System.out.println("Сумма превышает границы формата Long");

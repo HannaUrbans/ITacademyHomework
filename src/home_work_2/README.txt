@@ -16,11 +16,13 @@
 2.1.1 - class ArrayFromConsoleExample
 2.1.2 - class ArrayRandomExample
 
-2.2 - class ArraysIteration
+2.2 - class ArraysIteration, class ArraysIterationMain
+
+2.3 - interface IArraysOperation, class IArraysOperationMain, class DoWhileOperation, class WhileOperation, class ForOperation, class ForEachOperation
 
 2.4 - class ExampleTasksArrays
 
 3. shaker_sort.drawio, shaker_sort.pdf
 
 4.1 - class SortsUtils
-4.2 - class SortsMain
+4.2 - class SortsMain, class ArrayPrint

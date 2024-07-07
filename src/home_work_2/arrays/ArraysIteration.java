@@ -1,7 +1,5 @@
 package home_work_2.arrays;
 
-import static home_work_2.utils.ArraysUtils.arrayFromConsole;
-
 public class ArraysIteration {
     /**
      * написать перебор (итерирование) массива
@@ -10,10 +8,11 @@ public class ArraysIteration {
      */
 
     //2.2.1. Вывести все элементы в консоль.
-    public static int[] printElements(int[] inputArray) {
+    public void printElements(int[] inputArray) {
 
         //do....while
         int i = 0;
+
         do {
             System.out.print(inputArray[i]);
             if (i < inputArray.length - 1) {
@@ -26,6 +25,7 @@ public class ArraysIteration {
 
         //while
         int k = 0;
+
         while (k < inputArray.length) {
             System.out.print(inputArray[k]);
             if (k < inputArray.length - 1) {
@@ -46,6 +46,7 @@ public class ArraysIteration {
 
         //foreach
         int count = 0;
+
         for (int value : inputArray) {
             System.out.print(value);
             count++;
@@ -55,32 +56,33 @@ public class ArraysIteration {
         }
         System.out.println();
 
-        return inputArray;
     }
 
     //2.2.2. Вывести каждый второй элемент массива в консоль.
-    public static int[] printEachSecondElement(int[] inputArray) {
+    public void printEachSecondElement(int[] inputArray) {
 
         //do....while
         int i = 1;
+
         do {
             System.out.print(inputArray[i]);
-            if (i < inputArray.length - 1) {
+            i += 2;
+            if (i < inputArray.length) {
                 System.out.print(" ");
             }
-            i += 2;
         }
         while (i < inputArray.length);
         System.out.println();
 
         //while
         int k = 1;
+
         while (k < inputArray.length) {
-            {
+            if (k > 2) {
+                System.out.print(" " + inputArray[k]);
+                k += 2;
+            } else {
                 System.out.print(inputArray[k]);
-                if (k < inputArray.length - 1) {
-                    System.out.print(" ");
-                }
                 k += 2;
             }
         }
@@ -90,7 +92,7 @@ public class ArraysIteration {
         for (int x = 1; x < inputArray.length; x += 2) {
             {
                 System.out.print(inputArray[x]);
-                if (x < inputArray.length - 1) {
+                if (x < inputArray.length - 2) {
                     System.out.print(" ");
                 }
             }
@@ -99,23 +101,25 @@ public class ArraysIteration {
 
         //foreach
         int index = 0;
+
         for (int value : inputArray) {
             if (index % 2 != 0) {
                 System.out.print(value);
-                if (index < inputArray.length - 1 && (index + 1) % 2 != 0) {
+                if (index < inputArray.length - 2) {
                     System.out.print(" ");
                 }
             }
             index++;
         }
-        return inputArray;
+        System.out.println();
     }
 
     //2.2.3. Вывести все элементы массива в консоль в обратном порядке.
-    public static int[] printReversedElements(int[] inputArray) {
+    public void printReversedElements(int[] inputArray) {
 
         //do....while
         int i = inputArray.length;
+
         do {
             System.out.print(inputArray[i - 1]);
             i--;
@@ -128,13 +132,13 @@ public class ArraysIteration {
 
         //while
         int k = inputArray.length;
-        ;
+
         while (k > 0) {
             System.out.print(inputArray[k - 1]);
-            if (k > 0) {
+            if (k != 1) {
                 System.out.print(" ");
-                k--;
             }
+            k--;
         }
         System.out.println();
 
@@ -163,15 +167,6 @@ public class ArraysIteration {
             }
         }
 
-        return inputArray;
     }
-        public static void main (String[]args){
-            int[] array = arrayFromConsole();
-            if (array != null) {
-                //printElements(array);
-                //printEachSecondElement(array);
-                printReversedElements(array);
-            }
-        }
-    }
+}
 
