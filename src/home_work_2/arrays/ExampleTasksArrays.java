@@ -82,8 +82,8 @@ public class ExampleTasksArrays {
     public static int[] findMinArrayElem(int[] myArray) {
         int minValue1 = Integer.MAX_VALUE;
         int minValue2 = Integer.MAX_VALUE;//не -1, потому что -1 теоретически может получиться, если массив будет содержать и отрицат. значения элементов
-        for (int i = 0; i < myArray.length; i += 2) {
-            if (myArray[i] < minValue1) {
+        for (int i = 0; i < myArray.length; i++) {
+            if (myArray[i] <= minValue1) {
                 minValue2 = minValue1;
                 minValue1 = myArray[i];
             }
