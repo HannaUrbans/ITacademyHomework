@@ -23,11 +23,9 @@ public class ExampleTasksArrays {
         int firstNum = in.nextInt();
         System.out.println("Введите последнее число диапазона");
         int lastNum = in.nextInt();
-        if (lastNum <= firstNum)
-        {
+        if (lastNum <= firstNum) {
             System.out.println("Введите корректный интервал");
-        }
-        else {
+        } else {
             System.out.println("Это массив, из которого удалили цифры от " + firstNum + " до " + lastNum + ": " + Arrays.toString(MakeArraySmall(myArray, firstNum, lastNum)));
         }
 
@@ -101,6 +99,8 @@ public class ExampleTasksArrays {
     public static int[] MakeArraySmall(int[] myArray, int firstNumtoDelete, int lastNumToDelete) {
 
         int newArrayLength = 0;
+
+        //узнаем длину нового массива
         for (int i = 0; i < myArray.length; i++) {
             if (!(myArray[i] >= firstNumtoDelete && myArray[i] <= lastNumToDelete)) {
                 newArrayLength++;
@@ -115,6 +115,7 @@ public class ExampleTasksArrays {
             }
         }
 
+        //заполняем нулями разницу между длиной корткого и длинного массива
         for (int i = newArrayLength; i < myArray.length; i++) {
             newArray[i] = 0;
         }
@@ -138,7 +139,6 @@ public class ExampleTasksArrays {
                     digitSum = Long.MIN_VALUE;
                 }
             }
-
         }
         return digitSum;
     }
