@@ -1,10 +1,12 @@
 package home_work_2.loops;
 
+import java.text.DecimalFormat;
+
 /**
  * Все цифры из числа введенного через аргумент к исполняемой программе перемножить между собой и вывести ход вычислений в консоль.
  * Пользователь обязан ввести целое число. Если ввели не целое то выдать сообщение о том что пользователь ввёл некорректные данные.
- *
- * ВАЖНО! Проверки на целочисленность и наличие НЕцифр лучше бы сделать в виде исключений, но я остановилась на таких способах, чтобы на будущее лучше разобраться, что за чем идет
+ * <p>
+ * ВАЖНО! Проверки на целочисленность и наличие НЕцифр лучше бы сделать в виде исключений, но я остановилась на своих способах, чтобы лучше разобраться, что за чем идет
  * Например, пункт 4 (проверка оставшихся возможных значений на наличие НЕ цифр) долго не могла придумать, куда поставить, ведь "-" и "." тоже !Digits
  */
 
@@ -20,7 +22,7 @@ public class MultiplyInsideNumber {
         // читаем String из аргументов
         String inputString = args[0];
 
-        //  2. проверка на целочисленность
+        //  2. проверка на целочисленность (если 1 точка - число, если >1 - не число)
         if (inputString.contains(".")) {
             //убираем точку, проходим по массиву
             inputString = inputString.replaceFirst("\\.", "");
@@ -34,10 +36,10 @@ public class MultiplyInsideNumber {
             return;
         }
 
-        //  3. проверка на > 0
+        //  3. проверка на > 0 (знак минуса + цифры = число, иначе не число)
         if (inputString.startsWith("-")) {
             //убираем -, проходим по массиву
-            inputString = inputString.replaceFirst("\\-", "");
+            inputString = inputString.replaceFirst("-", "");
             for (char c : inputString.toCharArray()) {
                 if (!Character.isDigit(c)) {
                     System.out.println("Введено не число");
@@ -74,7 +76,11 @@ public class MultiplyInsideNumber {
                 sb.insert(0, " * ");
             }
         }
-        sb.append(" = ").append(res);
+
+        //отформатируем вывод результата
+        DecimalFormat df = new DecimalFormat("#,###");
+        String formattedRes = df.format(res);
+        sb.append(" = ").append(formattedRes);
         return sb.toString();
     }
 
