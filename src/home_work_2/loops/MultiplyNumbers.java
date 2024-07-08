@@ -17,24 +17,30 @@ public class MultiplyNumbers {
         }
 
         // Получаем число из аргумента командной строки
-        long inputNumber = Long.parseLong(args[0]);
+        String input = args[0];
+        long inputNumber;
 
-        if (inputNumber <= 0) {
-            System.out.println("Введите положительное число");
+        try {
+            inputNumber = Long.parseLong(input);
+            if (inputNumber <= 0) {
+                System.out.println("Введите положительное число");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Вы ввели не число");
             return;
         }
 
-        long result;
-        long k = 2;
+        long result = factorial(inputNumber);
+        long k = 2; //переменная для вывода хода вычислений
 
-        result = factorial(inputNumber);
         if (result == -1) {
             System.out.println("В результате умножения получилось слишком большое число для типа long");
         } else {
             DecimalFormat df = new DecimalFormat("#,###");
             String formattedResult = df.format(result);
 
-            //выводим на экран ход вычислений, можно ли так или это костыль?
+            //выводим на экран ход вычислений, этот вариант ок только если числа идут по порядку
             System.out.print(k - 1);
             while (k <= inputNumber) {
                 System.out.print(" * " + k);
@@ -47,10 +53,10 @@ public class MultiplyNumbers {
     public static long factorial(long number) {
         long numberFactorial = 1;
         for (long i = 1; i <= number; i++) {
-            numberFactorial *= i;
-            if (numberFactorial > Long.MAX_VALUE / i) {
+            if (Long.MAX_VALUE / numberFactorial < i) {
                 return -1;
             }
+            numberFactorial *= i;
         }
         return numberFactorial;
     }
