@@ -12,8 +12,7 @@ public class ArrayRandomExample {
 
     public static void main(String[] args) {
 
-    int[] container = arrayRandom(5, 100);
+        int[] container = arrayRandom(5, 100);
         System.out.println(Arrays.toString(container));
     }
-
 }

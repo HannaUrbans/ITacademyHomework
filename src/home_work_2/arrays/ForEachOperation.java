@@ -23,6 +23,11 @@ public class ForEachOperation implements IArraysOperation {
     public void printEachSecondElement(int[] inputArray) {
         int index = 0;
 
+        if (inputArray.length == 1) {
+            System.out.println("Вы ввели только один элемент");
+            return;
+        }
+
         for (int value : inputArray) {
             if (index % 2 != 0) {
                 System.out.print(value);
@@ -46,11 +51,16 @@ public class ForEachOperation implements IArraysOperation {
             reversedArray[reverseIndex] = value;
             reverseIndex--;
         }
+
+        boolean first = true;
         for (int value : reversedArray) {
-            System.out.print(value);
-            if (value != reversedArray[reversedArray.length - 1]) {
+            //после первого цикла устанавливаем флаг в положение false
+            if (!first) {
                 System.out.print(" ");
+            } else {
+                first = false;
             }
+            System.out.print(value);
         }
     }
 }

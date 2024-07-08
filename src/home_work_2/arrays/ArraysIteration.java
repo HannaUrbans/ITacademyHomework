@@ -63,6 +63,10 @@ public class ArraysIteration {
 
         //do....while
         int i = 1;
+        if (inputArray.length == 1) {
+            System.out.println("Вы ввели только один элемент");
+            return;
+        }
 
         do {
             System.out.print(inputArray[i]);
@@ -160,13 +164,17 @@ public class ArraysIteration {
             reversedArray[reverseIndex] = value;
             reverseIndex--;
         }
-        for (int value : reversedArray) {
-            System.out.print(value);
-            if (value != reversedArray[reversedArray.length - 1]) {
-                System.out.print(" ");
-            }
-        }
 
+        boolean first = true;
+        for (int value : reversedArray) {
+            //после первого цикла устанавливаем флаг в положение false
+            if (!first) {
+                System.out.print(" ");
+            } else {
+                first = false;
+            }
+            System.out.print(value);
+        }
     }
 }
 

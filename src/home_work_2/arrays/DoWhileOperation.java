@@ -23,6 +23,11 @@ public class DoWhileOperation implements IArraysOperation {
     public void printEachSecondElement(int[] inputArray) {
         int i = 1;
 
+        if (inputArray.length == 1) {
+            System.out.println("Вы ввели только один элемент");
+            return;
+        }
+
         do {
             System.out.print(inputArray[i]);
             i += 2;

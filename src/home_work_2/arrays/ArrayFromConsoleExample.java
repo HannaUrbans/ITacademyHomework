@@ -16,7 +16,7 @@ public class ArrayFromConsoleExample {
 
         int[] container = arrayFromConsole();
         if (container != null) {
-        System.out.println(Arrays.toString(container));}
-
+            System.out.println(Arrays.toString(container));
+        }
     }
 }

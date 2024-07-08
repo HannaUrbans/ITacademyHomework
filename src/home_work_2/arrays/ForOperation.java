@@ -17,6 +17,11 @@ public class ForOperation implements IArraysOperation {
     //2.2.2. Вывести каждый второй элемент массива в консоль.
     @Override
     public void printEachSecondElement(int[] inputArray) {
+
+        if (inputArray.length == 1) {
+            System.out.println("Вы ввели только один элемент");
+            return;
+        }
         for (int x = 1; x < inputArray.length; x += 2) {
             {
                 System.out.print(inputArray[x]);

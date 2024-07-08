@@ -22,6 +22,10 @@ public class WhileOperation implements IArraysOperation {
     public void printEachSecondElement(int[] inputArray) {
         int k = 1;
 
+        if (inputArray.length == 1) {
+            System.out.println("Вы ввели только один элемент");
+            return;
+        }
         while (k < inputArray.length) {
             if (k > 2) {
                 System.out.print(" " + inputArray[k]);

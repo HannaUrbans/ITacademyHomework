@@ -17,7 +17,15 @@ public class ArraysUtils {
         System.out.println("Введите элементы массива через запятую");
         String arrayEl = in.nextLine().trim();
 
-        String[] elements = arrayEl.split(",");
+        String[] elements = arrayEl.split(",\\s*");
+
+        /** if (arrayEl.contains(", ")) {
+         *    elements = arrayEl.split(", ");
+         *} else {
+         *    elements = arrayEl.split(",");
+         *}
+         */
+
         int[] inputArray = new int[size];
 
         if (size != elements.length) {
@@ -40,18 +48,17 @@ public class ArraysUtils {
      */
 
     public static int[] arrayRandom(int size, int maxValueExclusion) {
-        int [] myArray = new int[size];
-        for (int i = 0; i <size; i++)
-        {
+        int[] myArray = new int[size];
+        for (int i = 0; i < size; i++) {
             Random randomNumber = new Random();
-            myArray [i] = randomNumber.nextInt(maxValueExclusion+1);
+            myArray[i] = randomNumber.nextInt(maxValueExclusion + 1);
         }
 
         return myArray;
     }
 }
 /**
- *  for (int i = 0; i < size; i++) {
- *             array[i] = random.nextInt(max * 2 + 1) - max; // Генерация случайного числа от -max до max
- *         }
+ * for (int i = 0; i < size; i++) {
+ * array[i] = random.nextInt(max * 2 + 1) - max; // Генерация случайного числа от -max до max
+ * }
  */
