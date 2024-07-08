@@ -5,21 +5,21 @@ public class Table {
         printTable();
     }
 
-    public static void printTable (){
-        int res = 1;
-            for (int i = 1; i <= 10; i++) {
-                for (int j = 2; j <= 5; j++) {
-                    res = i * j;
-                    System.out.printf("%2d * %2d = %3d", j, i, res);
-                    if (j < 5) {
-                        System.out.print(" |");
-                    }
+    public static void printTable() {
+        int res;
+        for (int i = 1; i <= 10; i++) {
+            for (int j = 2; j <= 5; j++) {
+                res = i * j;
+                System.out.printf("%2d * %2d = %3d", j, i, res);
+                if (j < 5) {
+                    System.out.print(" |");
                 }
-                System.out.println("");
             }
+            System.out.println("");
+        }
 
-            //60 подстановкой взяла, в идеале нужно взять длину макс строки
-        for (int k = 1; k < 60;k++){
+        //60 подстановкой взяла, в идеале нужно взять длину макс строки
+        for (int k = 1; k < 60; k++) {
             System.out.print("-");
         }
         System.out.print("\n");
@@ -34,6 +34,5 @@ public class Table {
             }
             System.out.println("");
         }
-        }
-
     }
+}
