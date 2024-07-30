@@ -114,44 +114,62 @@ public class CalculatorStringExpression {
         return input;
     }
 
-    private String findExpression(String input, String regex, Operation operation) {
-        Pattern pattern = Pattern.compile(regex);
+    private String findAndCalculateSmallExpression(String input, String operator) {
+        Pattern pattern = Pattern.compile("(\\d+(\\.\\d+)?)" + Pattern.quote(operator) + "(\\d+(\\.\\d+)?)");
         Matcher matcher = pattern.matcher(input);
 
         StringBuilder result = new StringBuilder();
-        int lastEnd = 0; //индекс, до которого уже обработана строка
+        int lastEnd = 0;
+
         while (matcher.find()) {
             double a = Double.parseDouble(matcher.group(1));
-            double b = Double.parseDouble(matcher.group(4));
-            double res = operation.apply(a, b);
+            double b = Double.parseDouble(matcher.group(3));
+            double res = 0;
 
-            result.append(input, lastEnd, matcher.start()); // строка между последним обработанным совпадением и текущим совпадением
+            switch (operator) {
+                case "^":
+                    res = calculator.raiseToPower(a, b);
+                    break;
+                case "*":
+                    res = calculator.multiply(a, b);
+                    break;
+                case "/":
+                    res = calculator.divide(a, b);
+                    break;
+                case "+":
+                    res = calculator.add(a, b);
+                    break;
+                case "-":
+                    res = calculator.subtract(a, b);
+                    break;
+            }
+
+            result.append(input, lastEnd, matcher.start());
             result.append(res);
 
-            lastEnd = matcher.end(); //обновляет lastEnd на конец текущего совпадения для последующей обработки
+            lastEnd = matcher.end();
         }
 
-        result.append(input.substring(lastEnd)); //часть строки, которая не содержала подходящих шаблонов
+        result.append(input.substring(lastEnd));
         return result.toString();
     }
 
-    @FunctionalInterface
-    private interface Operation {
-        double apply(double a, double b);
-    }
-
     private String doMathPow(String input) {
-        return findExpression(input, "(\\d+(\\.\\d+)?)(\\^(\\d+(\\.\\d+)?))", (a, b) -> calculator.raiseToPower(a, b));
+        return findAndCalculateSmallExpression(input, "^");
     }
 
     private String multiplyDivide(String input) {
-        return findExpression(input, "(\\d+(\\.\\d+)?)([*/])(\\d+(\\.\\d+)?)",
-                (a, b) -> input.contains("*") ? calculator.multiply(a, b) : calculator.divide(a, b));
+        String result;
+        result = findAndCalculateSmallExpression(input, "*");
+        result = findAndCalculateSmallExpression(result, "/");
+        return result;
     }
 
     private String addSubtract(String input) {
-        return findExpression(input, "(\\d+(\\.\\d+)?)([+-])(\\d+(\\.\\d+)?)",
-                (a, b) -> input.contains("+") ? calculator.add(a, b) : calculator.subtract(a, b));
+        String result;
+        result = findAndCalculateSmallExpression(input, "+");
+        result = findAndCalculateSmallExpression(result, "-");
+        return result;
     }
 }
 
