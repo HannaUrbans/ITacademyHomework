@@ -5,12 +5,13 @@ import home_work_3.calcs.api.ICalculatorWithoutSquareRoot;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**Разбор (парсинг) СТРОКИ с математическим выражением
+/**
+ * Разбор (парсинг) СТРОКИ с математическим выражением
  * Создан новый интерфейс ICalculatorWithoutSquareRoot (отличается отсутствием метода squareRoot(a,b)
  * Создан класс-адаптер CalculatorWithMathCopyAdapter для возможности осущ-ния вычислений с помощью калькулятора из класса CalculatorWithMathCopy
  * Вычисления проводятся поэтапно
  * Результат каждого вычисления вставляется в String выражение вместо выражения "число+оператор+число"
-! не протестировано на отрицательных числах типа (-d) ли -d
+ * ! не протестировано на отрицательных числах типа (-d) ли -d
  */
 public class CalculatorStringExpression {
     private final ICalculatorWithoutSquareRoot calculator;
@@ -113,82 +114,44 @@ public class CalculatorStringExpression {
         return input;
     }
 
-    private String doMathPow(String input) {
-        Pattern pattern = Pattern.compile("(\\d+(\\.\\d+)?)(\\^(\\d+(\\.\\d+)?))");
+    private String findExpression(String input, String regex, Operation operation) {
+        Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
 
         StringBuilder result = new StringBuilder();
         int lastEnd = 0; //индекс, до которого уже обработана строка
-
         while (matcher.find()) {
             double a = Double.parseDouble(matcher.group(1));
             double b = Double.parseDouble(matcher.group(4));
-            double res = calculator.raiseToPower(a, b);
+            double res = operation.apply(a, b);
 
             result.append(input, lastEnd, matcher.start()); // строка между последним обработанным совпадением и текущим совпадением
             result.append(res);
 
-            lastEnd = matcher.end();  //обновляет lastEnd на конец текущего совпадения для последующей обработки
+            lastEnd = matcher.end(); //обновляет lastEnd на конец текущего совпадения для последующей обработки
         }
 
         result.append(input.substring(lastEnd)); //часть строки, которая не содержала подходящих шаблонов
         return result.toString();
     }
 
+    @FunctionalInterface
+    private interface Operation {
+        double apply(double a, double b);
+    }
+
+    private String doMathPow(String input) {
+        return findExpression(input, "(\\d+(\\.\\d+)?)(\\^(\\d+(\\.\\d+)?))", (a, b) -> calculator.raiseToPower(a, b));
+    }
+
     private String multiplyDivide(String input) {
-        Pattern pattern = Pattern.compile("(\\d+(\\.\\d+)?)([*/])(\\d+(\\.\\d+)?)");
-        Matcher matcher = pattern.matcher(input);
-
-        StringBuilder result = new StringBuilder();
-        int lastEnd = 0;
-
-        while (matcher.find()) {
-            double a = Double.parseDouble(matcher.group(1));
-            double b = Double.parseDouble(matcher.group(4));
-            double res;
-
-            if (matcher.group(3).equals("*")) {
-                res = calculator.multiply(a, b);
-            } else {
-                res = calculator.divide(a, b);
-            }
-
-            result.append(input, lastEnd, matcher.start());
-            result.append(res);
-
-            lastEnd = matcher.end();
-        }
-
-        result.append(input.substring(lastEnd));
-        return result.toString();
+        return findExpression(input, "(\\d+(\\.\\d+)?)([*/])(\\d+(\\.\\d+)?)",
+                (a, b) -> input.contains("*") ? calculator.multiply(a, b) : calculator.divide(a, b));
     }
 
     private String addSubtract(String input) {
-        Pattern pattern = Pattern.compile("(\\d+(\\.\\d+)?)([+-])(\\d+(\\.\\d+)?)");
-        Matcher matcher = pattern.matcher(input);
-
-        StringBuilder result = new StringBuilder();
-        int lastEnd = 0;
-
-        while (matcher.find()) {
-            double a = Double.parseDouble(matcher.group(1));
-            double b = Double.parseDouble(matcher.group(4));
-            double res;
-
-            if (matcher.group(3).equals("+")) {
-                res = calculator.add(a, b);
-            } else {
-                res = calculator.subtract(a, b);
-            }
-
-            result.append(input, lastEnd, matcher.start());
-            result.append(res);
-
-            lastEnd = matcher.end();
-        }
-
-        result.append(input.substring(lastEnd));
-        return result.toString();
+        return findExpression(input, "(\\d+(\\.\\d+)?)([+-])(\\d+(\\.\\d+)?)",
+                (a, b) -> input.contains("+") ? calculator.add(a, b) : calculator.subtract(a, b));
     }
 }
 
