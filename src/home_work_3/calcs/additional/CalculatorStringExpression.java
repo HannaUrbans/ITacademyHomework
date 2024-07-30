@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Задание 14
  * Разбор (парсинг) СТРОКИ с математическим выражением
  * Создан новый интерфейс ICalculatorWithoutSquareRoot (отличается отсутствием метода squareRoot(a,b)
  * Создан класс-адаптер CalculatorWithMathCopyAdapter для возможности осущ-ния вычислений с помощью калькулятора из класса CalculatorWithMathCopy
@@ -13,6 +14,7 @@ import java.util.regex.Pattern;
  * Результат каждого вычисления вставляется в String выражение вместо выражения "число+оператор+число"
  * ! не протестировано на отрицательных числах типа (-d) ли -d
  */
+
 public class CalculatorStringExpression {
     private final ICalculatorWithoutSquareRoot calculator;
 

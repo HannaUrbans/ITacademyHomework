@@ -2,6 +2,12 @@ package home_work_3.calcs.additional;
 
 import home_work_3.calcs.api.ICalculator;
 
+/**
+ * Задание 13
+ * Класс реализовывает интерфейс ICalculator
+ * Существует метод ICalculator getCalculator(), который возвращает вложенный в него калькулятор
+ */
+
 public class CalculatorWithMemoryDecorator implements ICalculator{
 
     private final ICalculator calculator;

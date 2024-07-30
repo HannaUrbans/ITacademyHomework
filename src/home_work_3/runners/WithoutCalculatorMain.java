@@ -1,5 +1,9 @@
 package home_work_3.runners;
 
+/**
+ * Задание 1
+ */
+
 public class WithoutCalculatorMain {
     public static void main(String[] args) {
 
