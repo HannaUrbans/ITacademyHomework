@@ -49,3 +49,20 @@ HOMEWORK2
 
 4.1 - class SortsUtils
 4.2 - class SortsMain, class ArrayPrint
+
+
+HOMEWORK3
+1 - class WithoutCalculatorMain
+2 - class CalculatorWithOperator, CalculatorWithOperatorMain
+3 - class CalculatorWithMathCopy, CalculatorWithMathCopyMain
+4 - class CalculatorWithMathExtends, CalculatorWithMathExtendsMain
+5 - class CalculatorWithCounterClassic, CalculatorWithCounterClassicMain
+6 - class CalculatorWithCounterAutoSuper, CalculatorWithCounterAutoSuperMain
+7 - class CalculatorWithCounterAutoComposite, CalculatorWithCounterDelegateCompositeMain
+8 - class CalculatorWithCounterAutoAgregation, CalculatorWithCounterDelegateAgregationMain
+9 - class CalculatorWithCounterAutoChoiceAgregation, CalculatorWithCounterDelegateChoiceAgregationMain
+10 - class ICalculator
+11 - class CalculatorWithCounterAutoAgregationInterface, CalculatorWithCounterAutoCompositeInterfaceMain
+12 - class CalculatorWithMemory, CalculatorWithMemoryMain
+13 - class CalculatorWithCounterAutoDecorator, CalculatorWithMemoryDecorator, CalculatorDecoratorMain
+14 - class CalculatorStringExpression, CalculatorStringExpressionMain, ICalculatorWithoutSquareRoot, CalculatorWithMathCopyAdapter
