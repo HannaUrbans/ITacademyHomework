@@ -34,23 +34,27 @@ public class MiddleNumber {
             return;
         }
 
-        int maxNumber = Math.max(inputNumber1, inputNumber2);
-        if (inputNumber3 > maxNumber) {
-            maxNumber = inputNumber3;
-        }
-
-        int minNumber = Math.min(inputNumber1, inputNumber2);
-        if (inputNumber3 < minNumber) {
-            minNumber = inputNumber3;
-        }
-
-        int res = (inputNumber1 + inputNumber2 + inputNumber3 - maxNumber - minNumber);
-        System.out.println("Среднее число из введённых Вами чисел " + inputNumber1 + ", " + inputNumber2 + ", " + inputNumber3 + ": " + res);
+        int middleNumber = findMiddleNumber(inputNumber1, inputNumber2, inputNumber3);
+        System.out.println("Среднее число из введённых Вами чисел " + inputNumber1 + ", " + inputNumber2 + ", " + inputNumber3 + ": " + middleNumber);
 
         in.close();
-}
+    }
 
-public static boolean isInRange(int number) {
-    return (number >= -100_000) && (number <= 100_000);
-}
+    public static int findMiddleNumber(int a, int b, int c) {
+        int maxNumber = Math.max(a, b);
+        if (c > maxNumber) {
+            maxNumber = c;
+        }
+
+        int minNumber = Math.min(a, b);
+        if (c < minNumber) {
+            minNumber = c;
+        }
+
+       return a + b + c - maxNumber - minNumber;
+    }
+
+    public static boolean isInRange(int number) {
+        return (number >= -100_000) && (number <= 100_000);
+    }
 }
