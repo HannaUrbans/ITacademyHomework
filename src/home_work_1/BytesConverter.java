@@ -10,17 +10,20 @@ public class BytesConverter {
         System.out.println("Введите байты для дальнейшей конвертации в килобайты.");
         double inputBytes = in.nextDouble();
 
-        if (isInRange(inputBytes)){
-            double res1 = inputBytes / 1024;
+        if (isInRange(inputBytes)) {
+            double res = convertBytes(inputBytes);
             DecimalFormat df = new DecimalFormat("#.###");
-            String formattedRes = df.format(res1);
+            String formattedRes = df.format(res);
             System.out.println(inputBytes + " байт = " + formattedRes + " килобайт");
-        }
-        else {
+        } else {
             System.out.println("Отрицательные числа не допустимы.");
             return;
         }
         in.close();
+    }
+
+    public static double convertBytes(double inputBytes) {
+        return inputBytes / 1024;
     }
 
     public static boolean isInRange(double number) {
