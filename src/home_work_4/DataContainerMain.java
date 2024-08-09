@@ -1,9 +1,12 @@
 package home_work_4;
 
+import java.util.Arrays;
+
 public class DataContainerMain {
     public static void main(String[] args) {
-        int arrayLength = 5;
-        DataContainer<String> container = new DataContainer<>(new String[arrayLength]);
+        int arrayLength = 4;
+       // DataContainer<String> container = new DataContainer<>(new String[arrayLength]);
+        DataContainer<String> container = new DataContainer<>(String.class);
         int index1 = container.add("Привет");
         int index2 = container.add("Как дела");
         int index3 = container.add("Работаю");
@@ -18,10 +21,9 @@ public class DataContainerMain {
         System.out.println(text4); //Давай потом
         container.delete(text1);
         System.out.println(container.get(index1)); //Как дела
-        //for (String elem:container){
-        //System.out.println(elem);} // ["Работаю", "Как дела", "Давай потом"]
+        System.out.println(Arrays.toString(container.getItems())); // ["Работаю", "Как дела", "Давай потом"]
 
-        DataContainer<Integer> container2 = new DataContainer<>(new Integer[arrayLength]);
+        DataContainer<Integer> container2 = new DataContainer<>(Integer.class, new Integer[arrayLength]);
         int index01 = container2.add(1);
         int index02 = container2.add(2);
         int index03 = container2.add(3);
