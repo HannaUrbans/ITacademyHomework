@@ -4,11 +4,18 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class DataContainer<T> {
-    private T[] data;
+
     private int defaultArrayLength = 10;
+    private T[] data;
+    private Class<T> type;
 
+    public DataContainer(Class<T> type) {
+        this.type = type;
+        this.data = createGenericArray(defaultArrayLength);
+    }
 
-    public DataContainer(T[] data) {
+    public DataContainer(Class<T> type, T[] data) {
+        this.type = type;
         if (data != null && data.length > 0) {
             this.data = data;
         } else {
@@ -17,8 +24,7 @@ public class DataContainer<T> {
     }
 
     private T[] createGenericArray(int length) {
-        Class<?> dataType = data.getClass().getComponentType();
-        return (T[]) Array.newInstance(dataType, length); //Создаем массив типа T
+        return (T[]) Array.newInstance(type, length);
     }
 
     public T[] getData() {
@@ -53,9 +59,9 @@ public class DataContainer<T> {
         return null;
     }
 
-    //public T[] getItems() {
-    //    return data;
-    //}
+    public T[] getItems() {
+        return Arrays.copyOf(data, data.length);
+    }
 
     public boolean delete(int index) {
         if (index < 0 || index >= data.length) {
@@ -82,17 +88,14 @@ public class DataContainer<T> {
     }
 
 
-    private T[] deleteWithOffset(int index) {
+    private void deleteWithOffset(int index) {
         for (int j = index; j < data.length - 1; j++) {
             data[j] = data[j + 1];
         }
 
         // Устанавливаем последний элемент в null, чтобы предотвратить "висячие" ссылки
         data[data.length - 1] = null;
-
         data = Arrays.copyOf(data, data.length - 1);
-
-        return data;
     }
 
     private void changeNullIntoItem(T item, int res) {
