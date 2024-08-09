@@ -8,6 +8,7 @@ public class DataContainer<T> {
     private int defaultArrayLength = 10;
     private T[] data;
     private Class<T> type;
+    //private int inputElementsQuantity;
 
     public DataContainer(Class<T> type) {
         this.type = type;
@@ -52,7 +53,7 @@ public class DataContainer<T> {
     }
 
     public T get(int index) {
-        if (index < data.length) {
+        if (index >= 0 && index < data.length) {
             return data[index];
         }
 
@@ -67,9 +68,11 @@ public class DataContainer<T> {
         if (index < 0 || index >= data.length) {
             return false;
         }
-
+        if (data[index] != null) {
         deleteWithOffset(index);
-        return true;
+        return true;}
+
+        return false;
     }
 
     public boolean delete(T item) {
@@ -78,7 +81,7 @@ public class DataContainer<T> {
         }
 
         for (int i = 0; i < data.length; i++) {
-            if (data[i].equals(item)) {
+            if (data[i] != null && data[i].equals(item)) {
                 deleteWithOffset(i);
                 return true;
             }
@@ -114,6 +117,10 @@ public class DataContainer<T> {
     private boolean isSameClass(T item) {
         return (data.getClass().getComponentType().isInstance(item));
     }
+
+   // public void makeArraySizeEqualToInputELementsAmount(){
+     //
+    //}
 
 }
 
