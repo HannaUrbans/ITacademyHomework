@@ -69,8 +69,9 @@ public class DataContainer<T> {
             return false;
         }
         if (data[index] != null) {
-        deleteWithOffset(index);
-        return true;}
+            deleteWithOffset(index);
+            return true;
+        }
 
         return false;
     }
@@ -118,9 +119,40 @@ public class DataContainer<T> {
         return (data.getClass().getComponentType().isInstance(item));
     }
 
-   // public void makeArraySizeEqualToInputELementsAmount(){
-     //
+    // public void makeArraySizeEqualToInputELementsAmount(){
+    //
     //}
 
-}
 
+    @Override
+    public String toString() {
+        int count = 0;
+
+        for (T item : data) {
+            if (item != null) {
+                count++;
+            }
+        }
+
+        T[] tmpData = createGenericArray(count);
+        int index = 0;
+        for (T item : data) {
+            if (item != null) {
+                tmpData[index++] = item;
+            }
+        }
+
+        data = Arrays.copyOf(tmpData, tmpData.length);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < data.length; i++) {
+            sb.append(data[i]);
+            if (i < data.length - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+}
