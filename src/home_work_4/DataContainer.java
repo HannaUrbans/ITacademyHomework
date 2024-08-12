@@ -3,7 +3,7 @@ package home_work_4;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class DataContainer<T> {
+public class DataContainer <T> {
 
     private int defaultArrayLength = 10;
     private T[] data;
@@ -154,5 +154,21 @@ public class DataContainer<T> {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+
+    public void sort(IComparator<T> comparator) {
+        // Реализация сортировки вставками
+        for (int i = 1; i < data.length; i++) {
+            T tmp = data[i];
+            int j = i - 1;
+
+            // Сравнение элементов и перемещение
+            while (j >= 0 && comparator.compare(data[j], tmp) > 0) {
+                data[j + 1] = data[j];
+                j--;
+            }
+            data[j + 1] = tmp;
+        }
     }
 }
