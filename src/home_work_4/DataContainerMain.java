@@ -45,5 +45,47 @@ public class DataContainerMain {
 
         // DataContainer<Integer> container2 = new DataContainer<>(Integer.class, new Integer[arrayLength]);
 
+        // задание 9
+        System.out.println("********************************************");
+        System.out.println("Задание 9");
+        System.out.println();
+
+        Integer[] intTest9Array = {1, 9, 9, 2, 0, -8, null};
+        String[] stringTest9Array = {"Массивы", "коллекции", null, "Инты"};
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(intTest9Array));
+        DataContainer<Integer> containerToSort1 = new DataContainer<>(Integer.class, intTest9Array);
+        containerToSort1.sort(new Comparator.IntegerComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort1.getData()));
+        System.out.println();
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(stringTest9Array));
+        DataContainer<String> containerToSort2 = new DataContainer<>(String.class, stringTest9Array);
+        containerToSort2.sort(new Comparator.StringComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort2.getData()));
+        System.out.println();
+
+        // задание 10
+        System.out.println("********************************************");
+        System.out.println("Задание 10");
+        System.out.println();
+
+        Integer[] intTest10Array1 = {1, 2, 3, 777, 3};
+        Integer[] intTest10Array2 = {1, 2, 3, null};
+        Integer[] intTest10Array3 = {};
+        DataContainer<Integer> intTest10Container1 = new DataContainer<>(Integer.class, intTest10Array1);
+        DataContainer<Integer> intTest10Container2 = new DataContainer<>(Integer.class, intTest10Array2);
+        DataContainer<Integer> intTest10Container3 = new DataContainer<>(Integer.class, intTest10Array3);
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(intTest10Array1));
+        System.out.println("Массив после сортировки: " + intTest10Container1.toString());
+        System.out.println();
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(intTest10Array2));
+        System.out.println("Массив после сортировки: " + intTest10Container2.toString());
+        System.out.println();
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(intTest10Array3));
+        System.out.println("Массив после сортировки: " + intTest10Container3.toString());
     }
 }
