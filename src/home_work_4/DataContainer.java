@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class DataContainer <T> {
+public class DataContainer<T extends Comparable<T>> {
 
     private int defaultArrayLength = 10;
     private T[] data;
@@ -159,7 +159,7 @@ public class DataContainer <T> {
 
 
     public void sort(Comparator<T> comparator) {
-        // Реализация сортировки вставками
+
         for (int i = 1; i < data.length; i++) {
             T tmp = data[i];
             int j = i - 1;
@@ -170,6 +170,37 @@ public class DataContainer <T> {
                 j--;
             }
             data[j + 1] = tmp;
+        }
+    }
+
+
+    public static <T extends Comparable<T>> void sort(DataContainer<T> container) {
+
+        for (int i = 1; i < container.data.length; i++) {
+            T tmp = container.data[i];
+            int j = i - 1;
+
+            // Сравнение элементов и перемещение
+            while (j >= 0 && container.data[j].compareTo(tmp) > 0) {
+                container.data[j + 1] = container.data[j];
+                j--;
+            }
+            container.data[j + 1] = tmp;
+        }
+    }
+
+    public static <T extends Comparable<T>> void sort(DataContainer<T> container, Comparator<T> comparator) {
+
+        for (int i = 1; i < container.data.length; i++) {
+            T tmp = container.data[i];
+            int j = i - 1;
+
+            // Сравнение элементов и перемещение
+            while (j >= 0 && comparator.compare(container.data[j], tmp) > 0) {
+                container.data[j + 1] = container.data[j];
+                j--;
+            }
+            container.data[j + 1] = tmp;
         }
     }
 }
