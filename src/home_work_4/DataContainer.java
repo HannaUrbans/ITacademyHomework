@@ -2,6 +2,7 @@ package home_work_4;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class DataContainer <T> {
 
@@ -157,7 +158,7 @@ public class DataContainer <T> {
     }
 
 
-    public void sort(IComparator<T> comparator) {
+    public void sort(Comparator<T> comparator) {
         // Реализация сортировки вставками
         for (int i = 1; i < data.length; i++) {
             T tmp = data[i];
