@@ -1,8 +1,10 @@
 package home_work_4;
 
-public class Comparator {
+import java.util.Comparator;
 
-    public static class IntegerComparator implements IComparator<Integer> {
+public class ComparatorOverride {
+
+    public static class IntegerComparator implements Comparator<Integer> {
         @Override
         public int compare(Integer a, Integer b) {
             int res = nullCaseCompare(a, b);
@@ -13,7 +15,7 @@ public class Comparator {
         }
     }
 
-    public static class StringComparator implements IComparator<String> {
+    public static class StringComparator implements Comparator<String> {
         @Override
         public int compare(String a, String b) {
             int result = nullCaseCompare(a, b);
