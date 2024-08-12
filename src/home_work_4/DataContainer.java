@@ -3,8 +3,9 @@ package home_work_4;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 
-public class DataContainer<T extends Comparable<T>> {
+public class DataContainer<T extends Comparable<T>> implements Iterable<T> {
 
     private int defaultArrayLength = 10;
     private T[] data;
@@ -203,4 +204,52 @@ public class DataContainer<T extends Comparable<T>> {
             container.data[j + 1] = tmp;
         }
     }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new DataIterator();
+    }
+
+    private class DataIterator implements Iterator<T> {
+        private int elemPosition = -1;
+        private boolean canRemoveBeCalled = false;
+
+        @Override
+        public boolean hasNext() {
+            while (elemPosition + 1 < data.length && data[elemPosition + 1] == null) {
+                elemPosition++;
+            }
+            return elemPosition + 1 < data.length;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                System.out.println("Нет доступных элементов");
+            }
+
+            elemPosition++;
+            canRemoveBeCalled = true;
+            return data[elemPosition];
+        }
+
+        @Override
+        public void remove() {
+            if (!canRemoveBeCalled) {
+                System.out.println("Произошла ошибка");
+            }
+
+            for (int i = elemPosition; i < data.length - 1; i++) {
+                data[i] = data[i + 1];
+            }
+
+            // Последний элемент устанавливаем в null, чтобы избежать "висячих" ссылок
+            data[data.length - 1] = null;
+            data = Arrays.copyOf(data, data.length - 1);
+
+            canRemoveBeCalled = false;
+            elemPosition--;
+        }
+    }
 }
+
