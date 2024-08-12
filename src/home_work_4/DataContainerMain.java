@@ -2,6 +2,7 @@ package home_work_4;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class DataContainerMain {
     public static void main(String[] args) {
@@ -127,5 +128,31 @@ public class DataContainerMain {
 
         System.out.println("Массив до сортировки: " + Arrays.toString(intTest10Array3));
         System.out.println("Массив после сортировки: " + intTest10Container3.toString());
+
+        // задание 13
+        System.out.println("********************************************");
+        System.out.println("Задание 13");
+        System.out.println();
+        DataContainer<Integer> containerToIterate13 = new DataContainer<>(Integer.class, intTest10Array1);
+        Iterator<Integer> iterator = containerToIterate13.iterator();
+
+        System.out.println("Первоначальный массив: " + Arrays.toString(intTest10Array1));
+
+        if (iterator.hasNext()) {
+            iterator.next();
+            iterator.remove();
+        }
+
+        System.out.println("После удаления элемента:");
+        System.out.println(Arrays.toString(containerToIterate13.getItems()));
+
+        System.out.println("Итерация массива " + Arrays.toString(containerToIterate13.getItems()) + " через hasNext:");
+        while (iterator.hasNext()) {
+            Integer item = iterator.next();
+            System.out.println(item);
+        }
+
+
     }
-}
+    }
+
