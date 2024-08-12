@@ -15,7 +15,7 @@ public class ComparatorOverride {
         }
     }
 
-    public static class StringLetterComparator implements Comparator<String> {
+    public static class StringAlphabeticComparator implements Comparator<String> {
         @Override
         public int compare(String a, String b) {
             int result = nullCaseCompare(a, b);
