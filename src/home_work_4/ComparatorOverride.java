@@ -15,7 +15,7 @@ public class ComparatorOverride {
         }
     }
 
-    public static class StringComparator implements Comparator<String> {
+    public static class StringLetterComparator implements Comparator<String> {
         @Override
         public int compare(String a, String b) {
             int result = nullCaseCompare(a, b);
@@ -23,6 +23,17 @@ public class ComparatorOverride {
                 return result;
             }
             return a.compareToIgnoreCase(b);
+        }
+    }
+
+    public static class StringLengthComparator implements Comparator<String> {
+        @Override
+        public int compare(String a, String b) {
+            int result = nullCaseCompare(a, b);
+            if (result != 0) {
+                return result;
+            }
+            return Integer.compare(a.length(), b.length());
         }
     }
 
