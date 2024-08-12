@@ -1,6 +1,7 @@
 package home_work_4;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class DataContainerMain {
     public static void main(String[] args) {
@@ -43,27 +44,66 @@ public class DataContainerMain {
         System.out.println(container2.toString());
         //System.out.println(Arrays.toString(container2.getItems()));
 
-        // DataContainer<Integer> container2 = new DataContainer<>(Integer.class, new Integer[arrayLength]);
-
         // задание 9
         System.out.println("********************************************");
         System.out.println("Задание 9");
         System.out.println();
 
         Integer[] intTest9Array = {1, 9, 9, 2, 0, -8, null};
-        String[] stringTest9Array = {"Массивы", "коллекции", null, "Инты"};
+        String[] stringLetterTest9Array = {"Массивы", "коллекции", null, "Инты"};
+        String[] stringLengthTest9_1Array = Arrays.copyOf(stringLetterTest9Array, stringLetterTest9Array.length, String[].class);
+        String[] stringLengthTest9_2Array = {"i", "hello", "1", "Как домашка"};
 
         System.out.println("Массив до сортировки: " + Arrays.toString(intTest9Array));
-        DataContainer<Integer> containerToSort1 = new DataContainer<>(Integer.class, intTest9Array);
-        containerToSort1.sort(new Comparator.IntegerComparator());
-        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort1.getData()));
+        DataContainer<Integer> containerToSort9_1 = new DataContainer<>(Integer.class, intTest9Array);
+        containerToSort9_1.sort(new ComparatorOverride.IntegerComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort9_1.getData()));
         System.out.println();
 
-        System.out.println("Массив до сортировки: " + Arrays.toString(stringTest9Array));
-        DataContainer<String> containerToSort2 = new DataContainer<>(String.class, stringTest9Array);
-        containerToSort2.sort(new Comparator.StringComparator());
-        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort2.getData()));
+        System.out.println("Массив до сортировки: " + Arrays.toString(stringLetterTest9Array));
+        DataContainer<String> containerToSort9_2 = new DataContainer<>(String.class, stringLetterTest9Array);
+        containerToSort9_2.sort(new ComparatorOverride.StringLetterComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort9_2.getData()));
         System.out.println();
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(stringLengthTest9_1Array));
+        DataContainer<String> containerToSort9_3 = new DataContainer<>(String.class, stringLengthTest9_1Array);
+        containerToSort9_3.sort(new ComparatorOverride.StringLengthComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort9_3.getData()));
+        System.out.println();
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(stringLengthTest9_2Array));
+        DataContainer<String> containerToSort9_4 = new DataContainer<>(String.class, stringLengthTest9_2Array);
+        containerToSort9_4.sort(new ComparatorOverride.StringLengthComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort9_4.getData()));
+        System.out.println();
+
+        // задание 11 статический метод сортировки
+        System.out.println("********************************************");
+        System.out.println("Задание 11");
+        System.out.println();
+
+        Integer[] integerTest11Array = {1, 9, 9, 2, 0, -8, null};
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(integerTest11Array));
+        DataContainer<Integer> containerToSort11_1 = new DataContainer<>(Integer.class, integerTest11Array);
+        DataContainer.sort(containerToSort11_1, new ComparatorOverride.IntegerComparator());
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort11_1.getData()));
+
+
+        // задание 12 статический метод сортировки с компаратором
+        System.out.println("********************************************");
+        System.out.println("Задание 12");
+        System.out.println();
+
+        Integer[] integerTest12Array = {1, 9, 9, 2, 0, -8, null};
+
+        System.out.println("Массив до сортировки: " + Arrays.toString(integerTest12Array));
+        DataContainer<Integer> containerToSort12_1 = new DataContainer<>(Integer.class, integerTest12Array);
+        Comparator<Integer> integerComparator = new ComparatorOverride.IntegerComparator();
+        DataContainer.sort(containerToSort12_1, integerComparator);
+
+        System.out.println("Массив после сортировки: " + Arrays.toString(containerToSort12_1.getData()));
 
         // задание 10
         System.out.println("********************************************");
