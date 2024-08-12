@@ -1,34 +1,26 @@
 package home_work_4;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 
 public class DataContainer<T extends Comparable<T>> implements Iterable<T> {
 
-    private int defaultArrayLength = 10;
     private T[] data;
-    private Class<T> type;
-    //private int inputElementsQuantity;
 
-    public DataContainer(Class<T> type) {
-        this.type = type;
-        this.data = createGenericArray(defaultArrayLength);
-    }
-
-    public DataContainer(Class<T> type, T[] data) {
-        this.type = type;
+    public DataContainer(T[] data) {
         if (data != null && data.length > 0) {
-            this.data = data;
+            this.data = Arrays.copyOf(data, data.length);
         } else {
-            this.data = createGenericArray(defaultArrayLength);
+            this.data = createGenericArray(0);
         }
     }
 
-    private T[] createGenericArray(int length) {
-        return (T[]) Array.newInstance(type, length);
-    }
+    @SuppressWarnings("unchecked")
+   private T[] createGenericArray(int length) {
+       // Используем объектный тип для создания массива
+       return (T[]) new Comparable[length];
+   }
 
     public T[] getData() {
         return data;
