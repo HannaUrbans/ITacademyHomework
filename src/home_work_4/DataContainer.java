@@ -17,10 +17,10 @@ public class DataContainer<T extends Comparable<T>> implements Iterable<T> {
     }
 
     @SuppressWarnings("unchecked")
-   private T[] createGenericArray(int length) {
-       // Используем объектный тип для создания массива
-       return (T[]) new Comparable[length];
-   }
+    private T[] createGenericArray(int length) {
+        // Используем объектный тип для создания массива
+        return (T[]) new Comparable[length];
+    }
 
     public T[] getData() {
         return data;
@@ -113,11 +113,6 @@ public class DataContainer<T extends Comparable<T>> implements Iterable<T> {
         return (data.getClass().getComponentType().isInstance(item));
     }
 
-    // public void makeArraySizeEqualToInputELementsAmount(){
-    //
-    //}
-
-
     @Override
     public String toString() {
         int count = 0;
@@ -168,17 +163,33 @@ public class DataContainer<T extends Comparable<T>> implements Iterable<T> {
 
 
     public static <T extends Comparable<T>> void sort(DataContainer<T> container) {
-
+        // сортируем массив, пропуская null (ИНАЧЕ КОМПАРАТОР ВЫДАСТ ИСКЛЮЧЕНИЕ)
         for (int i = 1; i < container.data.length; i++) {
             T tmp = container.data[i];
+
+            if (tmp == null) {
+                continue;
+            }
+
             int j = i - 1;
 
             // Сравнение элементов и перемещение
-            while (j >= 0 && container.data[j].compareTo(tmp) > 0) {
+            while (j >= 0 && container.data[j] != null && container.data[j].compareTo(tmp) > 0) {
                 container.data[j + 1] = container.data[j];
                 j--;
             }
             container.data[j + 1] = tmp;
+        }
+
+        // Перемещаем все null значения в начало массива
+        int nullCount = 0;
+        for (int i = 0; i < container.data.length; i++) {
+            if (container.data[i] == null) {
+                nullCount++;
+            } else if (nullCount > 0) {
+                container.data[i - nullCount] = container.data[i];
+                container.data[i] = null;
+            }
         }
     }
 
