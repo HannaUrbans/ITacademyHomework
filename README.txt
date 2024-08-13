@@ -66,3 +66,8 @@ HOMEWORK3
 12 - class CalculatorWithMemory, CalculatorWithMemoryMain
 13 - class CalculatorWithCounterAutoDecorator, CalculatorWithMemoryDecorator, CalculatorDecoratorMain
 14 - class CalculatorStringExpression, CalculatorStringExpressionMain, ICalculatorWithoutSquareRoot, CalculatorWithMathCopyAdapter
+
+HOMEWORK4 
+9-12 - class ComparatorOverride
+1-13 - class DataContainer
+1-13 - class DataContainerMain
