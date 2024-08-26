@@ -1,16 +1,16 @@
 package home_work_5;
 
 import home_work_5.api.ReturnUtil;
+import home_work_5.api.comparators.AgeAndNickComparator;
+import home_work_5.api.comparators.PasswordLengthAndNickComparator;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import static home_work_5.Animal.generateAnimal;
 import static home_work_5.Person.generatePerson;
 
 public class CollectionCreation {
-    private final static int quantity = 100_000;
+    private final static int quantity = 10;
 
     public static ReturnUtil<List<Person>> generatePersonLinkedList() {
         List<Person> linkedList = new LinkedList<>();
@@ -58,6 +58,54 @@ public class CollectionCreation {
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         return new ReturnUtil<>(arrayList, duration);
+    }
+
+    public static ReturnUtil<Set<Person>> generatePersonHashSet() {
+        Set<Person> hashSet = new HashSet<>();
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < quantity; i++) {
+            Person person = generatePerson();
+            hashSet.add(person);
+        }
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        return new ReturnUtil<>(hashSet, duration);
+    }
+
+    public static ReturnUtil<Set<Animal>> generateAnimalHashSet() {
+        Set<Animal> hashSet = new HashSet<>();
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < quantity; i++) {
+            Animal animal = generateAnimal();
+            hashSet.add(animal);
+        }
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        return new ReturnUtil<>(hashSet, duration);
+    }
+
+    public static ReturnUtil<Set<Person>> generatePersonTreeSet() {
+        Set<Person> treeSet = new TreeSet<>(new PasswordLengthAndNickComparator());
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < quantity; i++) {
+            Person person = generatePerson();
+            treeSet.add(person);
+        }
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        return new ReturnUtil<>(treeSet, duration);
+    }
+
+    public static ReturnUtil<Set<Animal>> generateAnimalTreeSet() {
+        Set<Animal> treeSet = new TreeSet<>(new AgeAndNickComparator());
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < quantity; i++) {
+            Animal animal = generateAnimal();
+            treeSet.add(animal);
+        }
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        return new ReturnUtil<>(treeSet, duration);
     }
 
 }

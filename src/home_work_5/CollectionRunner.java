@@ -1,10 +1,10 @@
 package home_work_5;
 
 import home_work_5.api.ReturnUtil;
+import home_work_5.api.comparators.AgeAndNickComparator;
+import home_work_5.api.comparators.PasswordLengthAndNickComparator;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import static home_work_5.api.IterationUtil.countDurationOfForLoopIteration;
 import static home_work_5.api.IterationUtil.countDurationOfIteratorIteration;
@@ -19,7 +19,6 @@ public class CollectionRunner {
         long durationCreationPersonLinkedList = resultCreationPersonLinkedList.getDuration();
         long durationIterationWithIteratorPersonLinkedList = countDurationOfIteratorIteration(linkedPersonList);
         long durationIterationWithForLoopPersonLinkedList = countDurationOfForLoopIteration(linkedPersonList);
-        //long durationIterationWithForEachPersonLinkedList = countDurationOfForEachIteration(linkedPersonList);
         //List<Person> linkedPersonListToSort1 = new LinkedList<>(linkedPersonList);
         //List<Person> linkedPersonListToSort2 = new LinkedList<>(linkedPersonList);
         //List<Person> linkedPersonListToSort3 = new LinkedList<>(linkedPersonList);
@@ -48,7 +47,6 @@ public class CollectionRunner {
         long durationCreationPersonArrayList = resultCreationPersonArrayList.getDuration();
         long durationIterationWithIteratorPersonArrayList = countDurationOfIteratorIteration(arrayPersonList);
         long durationIterationWithForLoopPersonArrayList = countDurationOfForLoopIteration(arrayPersonList);
-        //long durationIterationWithForEachPersonArrayList = countDurationOfForEachIteration(arrayPersonList);
         //List<Person> arrayPersonListToSort1 = new ArrayList<>(arrayPersonList);
         //List<Person> arrayPersonListToSort2 = new ArrayList<>(arrayPersonList);
         //List<Person> arrayPersonListToSort3 = new ArrayList<>(arrayPersonList);
@@ -72,6 +70,67 @@ public class CollectionRunner {
         long durationOfRemovalAnimalArrayListWithIterator = countDurationOfRemovalWithIterator(arrayAnimalListToRemove1);
         long durationOfRemovalAnimalArrayListWithClear = countDurationOfRemovalWithClear(arrayAnimalListToRemove2);
 
+        ReturnUtil<Set<Person>> resultCreationPersonHashSet = CollectionCreation.generatePersonHashSet();
+        Set<Person> personHashSet = resultCreationPersonHashSet.getResult();
+        long durationCreationPersonHashSet = resultCreationPersonHashSet.getDuration();
+        long durationIterationWithIteratorPersonHashSet = countDurationOfIteratorIteration(personHashSet);
+        //ДОБАВИТЬ ЕЩЕ СПОСОБ ИТЕРАЦИИ
+        //Set<Person> personHashSetToSort1 = new HashSet<>(personHashSet);
+        //Set<Person> personHashSetToSort2 = new HashSet<>(personHashSet);
+        //Set<Person> personHashSetToSort3 = new HashSet<>(personHashSet);
+        //Set<Person> personHashSetToSort4 = new HashSet<>(personHashSet);
+        Set<Person> personHashSetToRemove1 = new HashSet<>(personHashSet);
+        Set<Person> personHashSetToRemove2 = new HashSet<>(personHashSet);
+        long durationOfRemovalPersonHashSetWithIterator = countDurationOfRemovalWithIterator(personHashSetToRemove1);
+        long durationOfRemovalPersonHashSetWithClear = countDurationOfRemovalWithClear(personHashSetToRemove2);
+
+        ReturnUtil<Set<Animal>> resultCreationAnimalHashSet = CollectionCreation.generateAnimalHashSet();
+        Set<Animal> animalHashSet = resultCreationAnimalHashSet.getResult();
+        long durationCreationAnimalHashSet = resultCreationAnimalHashSet.getDuration();
+        long durationIterationWithIteratorAnimalHashSet = countDurationOfIteratorIteration(animalHashSet);
+        //ДОБАВИТЬ ЕЩЕ СПОСОБ ИТЕРАЦИИ
+        //Set<Animal> animalHashSetToSort1 = new HashSet<>(animalHashSet);
+        //Set<Animal> animalHashSetToSort2 = new HashSet<>(animalHashSet);
+        //Set<Animal> animalHashSetToSort3 = new HashSet<>(animalHashSet);
+        //Set<Animal> animalHashSetToSort4 = new HashSet<>(animalHashSet);
+        Set<Animal> animalHashSetToRemove1 = new HashSet<>(animalHashSet);
+        Set<Animal> animalHashSetToRemove2 = new HashSet<>(animalHashSet);
+        long durationOfRemovalAnimalHashSetWithIterator = countDurationOfRemovalWithIterator(animalHashSetToRemove1);
+        long durationOfRemovalAnimalHashSetWithClear = countDurationOfRemovalWithClear(animalHashSetToRemove2);
+
+        ReturnUtil<Set<Person>> resultCreationPersonTreeSet = CollectionCreation.generatePersonTreeSet();
+        Set<Person> personTreeSet = resultCreationPersonTreeSet.getResult();
+        long durationCreationPersonTreeSet = resultCreationPersonTreeSet.getDuration();
+        long durationIterationWithIteratorPersonTreeSet = countDurationOfIteratorIteration(personTreeSet);
+        //ДОБАВИТЬ ЕЩЕ СПОСОБ ИТЕРАЦИИ
+        //Set<Person> personTreeSetToSort1 = new TreeSet<>(personTreeSet);
+        //Set<Person> personTreeSetToSort2 = new TreeSet<>(personTreeSet);
+        //Set<Person> personTreeSetToSort3 = new TreeSet<>(personTreeSet);
+        //Set<Person> personTreeSetToSort4 = new TreeSet<>(personTreeSet);
+        Set<Person> personTreeSetToRemove1 = new TreeSet<>(new PasswordLengthAndNickComparator());
+        personTreeSetToRemove1.addAll(personTreeSet);
+        Set<Person> personTreeSetToRemove2 = new TreeSet<>(new PasswordLengthAndNickComparator());
+        personTreeSetToRemove2.addAll(personTreeSet);
+        long durationOfRemovalPersonTreeSetWithIterator = countDurationOfRemovalWithIterator(personTreeSetToRemove1);
+        long durationOfRemovalPersonTreeSetWithClear = countDurationOfRemovalWithClear(personTreeSetToRemove2);
+
+
+        ReturnUtil<Set<Animal>> resultCreationAnimalTreeSet = CollectionCreation.generateAnimalTreeSet();
+        Set<Animal> animalTreeSet = resultCreationAnimalTreeSet.getResult();
+        long durationCreationAnimalTreeSet = resultCreationAnimalTreeSet.getDuration();
+        long durationIterationWithIteratorAnimalTreeSet = countDurationOfIteratorIteration(animalTreeSet);
+        //ДОБАВИТЬ ЕЩЕ СПОСОБ ИТЕРАЦИИ
+        //Set<Animal> animalTreeSetToSort1 = new TreeSet<>(animalTreeSet);
+        //Set<Animal> animalTreeSetToSort2 = new TreeSet<>(animalTreeSet);
+        //Set<Animal> animalTreeSetToSort3 = new TreeSet<>(animalTreeSet);
+        //Set<Animal> animalTreeSetToSort4 = new TreeSet<>(animalTreeSet);
+        Set<Animal> animalTreeSetToRemove1 = new TreeSet<>(new AgeAndNickComparator());
+        animalTreeSetToRemove1.addAll(animalTreeSet);
+        Set<Animal> animalTreeSetToRemove2 = new TreeSet<>(new AgeAndNickComparator());
+        animalTreeSetToRemove2.addAll(animalTreeSet);
+        long durationOfRemovalAnimalTreeSetWithIterator = countDurationOfRemovalWithIterator(animalTreeSetToRemove1);
+        long durationOfRemovalAnimalTreeSetWithClear = countDurationOfRemovalWithClear(animalTreeSetToRemove2);
+
         System.out.println("LINKED LIST PERSON");
         //print(linkedPersonList);
         System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
@@ -80,8 +139,6 @@ public class CollectionRunner {
                 "итерация с помощью Итератора", linkedPersonList.getClass().getSimpleName(), linkedPersonList.get(0).getClass().getSimpleName(), durationIterationWithIteratorPersonLinkedList);
         System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
                 "итерация с помощью For", linkedPersonList.getClass().getSimpleName(), linkedPersonList.get(0).getClass().getSimpleName(), durationIterationWithForLoopPersonLinkedList);
-        //System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
-        //       "итерация с помощью ForEach", linkedPersonList.getClass().getSimpleName(), linkedPersonList.get(0).getClass().getSimpleName(), durationIterationWithForEachPersonLinkedList);
         //System.out.println("Встроенный компаратор");
         //System.out.println("PasswordLengthComparator");
         //Collections.sort(linkedPersonListToSort1, new PasswordLengthComparator());
@@ -139,9 +196,7 @@ public class CollectionRunner {
         System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
                 "итерация с помощью Итератора", arrayPersonList.getClass().getSimpleName(), arrayPersonList.get(0).getClass().getSimpleName(), durationIterationWithIteratorPersonArrayList);
         System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
-                "итерация с помощью For", arrayPersonList.getClass().getSimpleName(), arrayPersonList.get(0).getClass().getSimpleName(), durationIterationWithForLoopPersonArrayList);
-        //System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
-        //      "итерация с помощью ForEach", arrayPersonList.getClass().getSimpleName(), arrayPersonList.get(0).getClass().getSimpleName(), durationIterationWithForEachPersonArrayList);
+                "итерация с помощью For", arrayPersonList.getClass().getSimpleName(), arrayPersonList.get(0).getClass().getSimpleName(), durationIterationWithForLoopPersonArrayList);;
         //System.out.println("Встроенный компаратор");
         //System.out.println("PasswordLengthComparator");
         //Collections.sort(arrayPersonListToSort1, new PasswordLengthComparator());
@@ -189,7 +244,65 @@ public class CollectionRunner {
                 "удаления с помощью Итератора", arrayAnimalList.getClass().getSimpleName(), arrayAnimalList.get(0).getClass().getSimpleName(), durationOfRemovalAnimalArrayListWithIterator);
         System.out.printf("Операция: %s %s для класса %s. Заняла %d мс%n",
                 "удаления с помощью Clear", arrayAnimalList.getClass().getSimpleName(), arrayAnimalList.get(0).getClass().getSimpleName(), durationOfRemovalAnimalArrayListWithClear);
+        System.out.println("____________________________________________");
+        System.out.println();
+
+        System.out.println("HASHSET PERSON");
+        //print(personHashSet);
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "заполнение", personHashSet.getClass().getSimpleName(), durationCreationPersonHashSet);
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "итерация с помощью Итератора", personHashSet.getClass().getSimpleName(), durationIterationWithIteratorPersonHashSet);
+        //System.out.println("Встроенный компаратор");
+        //System.out.println("Сортировка ведрами");
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "удаления с помощью Итератора", personHashSet.getClass().getSimpleName(), durationOfRemovalPersonHashSetWithIterator);
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "удаления с помощью Clear", personHashSet.getClass().getSimpleName(), durationOfRemovalPersonHashSetWithClear);
+        System.out.println("____________________________________________");
+        System.out.println();
+
+        System.out.println("HASHSET ANIMAL");
+        //print(animalHashSet);
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "заполнение", animalHashSet.getClass().getSimpleName(), durationCreationAnimalHashSet);
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "итерация с помощью Итератора", animalHashSet.getClass().getSimpleName(), durationIterationWithIteratorAnimalHashSet);
+        //System.out.println("Встроенный компаратор");
+        //System.out.println("Сортировка ведрами");
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "удаления с помощью Итератора", animalHashSet.getClass().getSimpleName(), durationOfRemovalAnimalHashSetWithIterator);
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "удаления с помощью Clear", animalHashSet.getClass().getSimpleName(), durationOfRemovalAnimalHashSetWithClear);
+        System.out.println("____________________________________________");
+        System.out.println();
+
+        System.out.println("TREESET PERSON");
+        //print(personTreeSet);
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "заполнение", personTreeSet.getClass().getSimpleName(), durationCreationPersonTreeSet);
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "итерация с помощью Итератора", personTreeSet.getClass().getSimpleName(), durationIterationWithIteratorPersonTreeSet);
+        //System.out.println("Встроенный компаратор");
+        //System.out.println("Сортировка ведрами");
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "удаления с помощью Итератора", personTreeSet.getClass().getSimpleName(), durationOfRemovalPersonTreeSetWithIterator);
+        System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
+                "удаления с помощью Clear", personTreeSet.getClass().getSimpleName(), durationOfRemovalPersonTreeSetWithClear);
+        System.out.println("____________________________________________");
+        System.out.println();
+
+        System.out.println("TREESET ANIMAL");
+        //print(animalTreeSet);
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "заполнение", animalTreeSet.getClass().getSimpleName(), durationCreationAnimalTreeSet);
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "итерация с помощью Итератора", animalTreeSet.getClass().getSimpleName(), durationIterationWithIteratorAnimalTreeSet);
+        //System.out.println("Встроенный компаратор");
+        //System.out.println("Сортировка ведрами");
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "удаления с помощью Итератора", animalTreeSet.getClass().getSimpleName(), durationOfRemovalAnimalTreeSetWithIterator);
+        System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
+                "удаления с помощью Clear", animalTreeSet.getClass().getSimpleName(), durationOfRemovalAnimalTreeSetWithClear);
     }
-
-
 }

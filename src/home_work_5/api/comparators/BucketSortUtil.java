@@ -1,14 +1,11 @@
 package home_work_5.api.comparators;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class BucketSortUtil {
 
-    public static <T> void bucketSort(List<T> list, Comparator<? super T> comparator) {
-        if (list == null || list.size() < 2) {
+    public static <T> void bucketSort(Collection<T> collection, Comparator<? super T> comparator) {
+        if (collection == null || collection.size() < 2) {
             return;
         }
 
@@ -22,8 +19,8 @@ public class BucketSortUtil {
         }
 
         // Найти минимальное и максимальное значение для нормализации
-        T minValue = Collections.min(list, comparator);
-        T maxValue = Collections.max(list, comparator);
+        T minValue = Collections.min(collection, comparator);
+        T maxValue = Collections.max(collection, comparator);
 
         // Если значения равны, нет смысла в сортировке
         if (comparator.compare(minValue, maxValue) == 0) {
@@ -31,16 +28,16 @@ public class BucketSortUtil {
         }
 
         // Распределяем элементы по ведрам
-        for (T item : list) {
+        for (T item : collection) {
             int bucketIndex = getBucketIndex(item, minValue, maxValue, bucketCount, comparator);
             buckets.get(bucketIndex).add(item);
         }
 
         // Сортируем каждое ведро и объединяем результаты
-        list.clear();
+        collection.clear();
         for (List<T> bucket : buckets) {
             Collections.sort(bucket, comparator); // Используем стандартную сортировку для ведер
-            list.addAll(bucket);
+            collection.addAll(bucket);
         }
     }
 

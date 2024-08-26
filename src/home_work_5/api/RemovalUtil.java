@@ -1,44 +1,44 @@
 package home_work_5.api;
 
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 public class RemovalUtil {
 
-    public static <T> void removeAllWithIterator(List<T> list) {
-        Iterator<T> iterator = list.iterator();
+    public static <T> void removeAllWithIterator(Collection<T> collection) {
+        Iterator<T> iterator = collection.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             iterator.remove();
         }
     }
 
-    public static <T> long countDurationOfRemovalWithIterator(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            throw new IllegalArgumentException("Список пуст");
+    public static <T> long countDurationOfRemovalWithIterator(Collection<T> collection) {
+        if (collection == null || collection.isEmpty()) {
+            throw new IllegalArgumentException("Коллекция пуста");
         }
 
         long startTime = System.currentTimeMillis();
-        removeAllWithIterator(list);
+        removeAllWithIterator(collection);
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
     }
 
 
-    public static <T> void removeAllWithClear(List<T> list) {
-        if (list == null) {
-            throw new IllegalArgumentException("Список пуст");
+    public static <T> void removeAllWithClear(Collection<T> collection) {
+        if (collection == null) {
+            throw new IllegalArgumentException("Коллекция пуста");
         }
-        list.clear();
+        collection.clear();
     }
 
-    public static <T> long countDurationOfRemovalWithClear(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            throw new IllegalArgumentException("Список пуст");
+    public static <T> long countDurationOfRemovalWithClear(Collection<T> collection) {
+        if (collection == null || collection.isEmpty()) {
+            throw new IllegalArgumentException("Коллекция пуста");
         }
 
         long startTime = System.currentTimeMillis();
-        removeAllWithClear(list);
+        removeAllWithClear(collection);
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
     }
