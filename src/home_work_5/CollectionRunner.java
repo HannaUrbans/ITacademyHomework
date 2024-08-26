@@ -296,3 +296,4 @@ public class CollectionRunner {
                 "удаления с помощью Clear", animalTreeSet.getClass().getSimpleName(), durationOfRemovalAnimalTreeSetWithClear);
     }
 }
+

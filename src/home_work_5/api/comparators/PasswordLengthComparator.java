@@ -12,5 +12,4 @@ public class PasswordLengthComparator implements Comparator<Person> {
         }
         return Integer.compare(o1.getPassword().length(), o2.getPassword().length());
     }
-
 }
