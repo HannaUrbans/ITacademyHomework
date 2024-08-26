@@ -103,10 +103,6 @@ public class CollectionRunner {
         long durationCreationPersonTreeSet = resultCreationPersonTreeSet.getDuration();
         long durationIterationWithIteratorPersonTreeSet = countDurationOfIteratorIteration(personTreeSet);
         //ДОБАВИТЬ ЕЩЕ СПОСОБ ИТЕРАЦИИ
-        //Set<Person> personTreeSetToSort1 = new TreeSet<>(personTreeSet);
-        //Set<Person> personTreeSetToSort2 = new TreeSet<>(personTreeSet);
-        //Set<Person> personTreeSetToSort3 = new TreeSet<>(personTreeSet);
-        //Set<Person> personTreeSetToSort4 = new TreeSet<>(personTreeSet);
         Set<Person> personTreeSetToRemove1 = new TreeSet<>(new PasswordLengthAndNickComparator());
         personTreeSetToRemove1.addAll(personTreeSet);
         Set<Person> personTreeSetToRemove2 = new TreeSet<>(new PasswordLengthAndNickComparator());
@@ -120,10 +116,6 @@ public class CollectionRunner {
         long durationCreationAnimalTreeSet = resultCreationAnimalTreeSet.getDuration();
         long durationIterationWithIteratorAnimalTreeSet = countDurationOfIteratorIteration(animalTreeSet);
         //ДОБАВИТЬ ЕЩЕ СПОСОБ ИТЕРАЦИИ
-        //Set<Animal> animalTreeSetToSort1 = new TreeSet<>(animalTreeSet);
-        //Set<Animal> animalTreeSetToSort2 = new TreeSet<>(animalTreeSet);
-        //Set<Animal> animalTreeSetToSort3 = new TreeSet<>(animalTreeSet);
-        //Set<Animal> animalTreeSetToSort4 = new TreeSet<>(animalTreeSet);
         Set<Animal> animalTreeSetToRemove1 = new TreeSet<>(new AgeAndNickComparator());
         animalTreeSetToRemove1.addAll(animalTreeSet);
         Set<Animal> animalTreeSetToRemove2 = new TreeSet<>(new AgeAndNickComparator());
@@ -283,8 +275,7 @@ public class CollectionRunner {
                 "заполнение", personTreeSet.getClass().getSimpleName(), durationCreationPersonTreeSet);
         System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
                 "итерация с помощью Итератора", personTreeSet.getClass().getSimpleName(), durationIterationWithIteratorPersonTreeSet);
-        //System.out.println("Встроенный компаратор");
-        //System.out.println("Сортировка ведрами");
+        System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");
         System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
                 "удаления с помощью Итератора", personTreeSet.getClass().getSimpleName(), durationOfRemovalPersonTreeSetWithIterator);
         System.out.printf("Операция: %s %s для класса Person. Заняла %d мс%n",
@@ -298,8 +289,7 @@ public class CollectionRunner {
                 "заполнение", animalTreeSet.getClass().getSimpleName(), durationCreationAnimalTreeSet);
         System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
                 "итерация с помощью Итератора", animalTreeSet.getClass().getSimpleName(), durationIterationWithIteratorAnimalTreeSet);
-        //System.out.println("Встроенный компаратор");
-        //System.out.println("Сортировка ведрами");
+        System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");
         System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
                 "удаления с помощью Итератора", animalTreeSet.getClass().getSimpleName(), durationOfRemovalAnimalTreeSetWithIterator);
         System.out.printf("Операция: %s %s для класса Animal. Заняла %d мс%n",
