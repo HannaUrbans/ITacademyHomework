@@ -10,7 +10,7 @@ import static home_work_5.Animal.generateAnimal;
 import static home_work_5.Person.generatePerson;
 
 public class CollectionCreation {
-    private final static int quantity = 1_000_000;
+    private final static int quantity = 100000;
 
     public static ReturnUtil<List<Person>> generatePersonLinkedList() {
         List<Person> linkedList = new LinkedList<>();
