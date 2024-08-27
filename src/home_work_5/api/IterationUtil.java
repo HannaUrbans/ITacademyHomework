@@ -1,8 +1,6 @@
 package home_work_5.api;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class IterationUtil {
 
@@ -24,20 +22,21 @@ public class IterationUtil {
         return endTime - startTime;
     }
 
-    //только для List
-    public static <T> void iterateWithForLoop(List<T> list) {
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i);
+    public static <T> void iterateWithConvertationIntoArray(Collection<T> collection, Class<T> clazz) {
+        T[] array = (T[]) java.lang.reflect.Array.newInstance(clazz, collection.size());
+        collection.toArray(array);
+        for (int i = 0; i < array.length; i++) {
+            T element = array[i];
         }
     }
 
-    public static <T> long countDurationOfForLoopIteration(List<T> list) {
-        if (list == null || list.isEmpty()) {
+    public static <T> long countDurationOfWithConvertationIntoArrayIteration(Collection<T> collection, Class<T> clazz) {
+        if (collection == null || collection.isEmpty()) {
             throw new IllegalArgumentException("Коллекция пуста");
         }
 
         long startTime = System.currentTimeMillis();
-        iterateWithForLoop(list);
+        iterateWithConvertationIntoArray(collection, clazz);
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
     }
