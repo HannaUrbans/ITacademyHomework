@@ -71,3 +71,13 @@ HOMEWORK4
 9-12 - class ComparatorOverride
 1-13 - class DataContainer
 1-13 - class DataContainerMain
+
+HOMEWORK5
+1 - class Animal, Person
+2-4 - enum Characters, class StringCreationUtil, FileReaderUtil
+5 - class AgeAndNickComparator, AgeComparator, PasswordLengthAndNickComparator, PasswordLengthComparator
+6.1 - 6.2 - class CollectionCreation, AnimalCreationUtil, PersonCreationUtil, ReturnUtil
+6.3 - DurationSortOperations, QuickSortUtil, SetSortUtil
+6.4 - class CollectionRunner, PrintCollectionUtil
+6.4.2 - class IterationUtil
+6.4.3 - class RemovalUtil
