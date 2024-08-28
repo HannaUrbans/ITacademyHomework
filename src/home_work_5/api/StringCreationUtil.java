@@ -4,6 +4,13 @@ import java.util.EnumSet;
 import java.util.Random;
 
 public class StringCreationUtil {
+    /**
+     * Метод по рандомному генерированию String из строк, перечисленных в ENUM
+     * @param minLength - минимально возможная длина готовой строки
+     * @param maxLength - максимально возможная длина готовой строки
+     * @param characterTypes - списки, состоящие из String из Enum
+     * @return
+     */
     public static String generateRandomStringFromEnum(int minLength, int maxLength, EnumSet<Characters> characterTypes) {
         Random random = new Random();
 
@@ -28,6 +35,11 @@ public class StringCreationUtil {
         return result.toString();
     }
 
+    /**
+     * Метод по рандомному генерированию String из элементов массива
+     * @param array - массив с данными
+     * @return - один из элементов массива, которого выбирается с помощью рандомного индекса
+     */
     public static String generateRandomStringFromArray(String[] array) {
         Random random = new Random();
 
@@ -39,6 +51,11 @@ public class StringCreationUtil {
         return array[index];
     }
 
+    /**
+     * Метод по рандомному генерированию String из внешнего файла
+     * @param input - уже прочитанные с помощью метода из FileReaderUtil в виде String, которые впоследствии делятся на массив строк
+     * @return - один из элементов массива, которого выбирается с помощью рандомного индекса
+     */
     public static String generateRandomStringFromFile(String input) {
         String[] array = input.split("[,;\\s\\r\\n]+");
         return generateRandomStringFromArray(array);

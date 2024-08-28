@@ -5,6 +5,12 @@ import java.util.Random;
 
 import static home_work_5.api.Characters.*;
 
+/**
+ * Класс для генерации объекта типа Person
+ * Пароль генерируется с помощью метода generateRandomStringFromEnum из класса StringCreationUtil
+ * При генерации имени и ника рандомно выбирается одно из чисел, каждому из чисел соответствует свой метод в switch
+ */
+
 public class PersonCreationUtil {
     static Random random = new Random();
 

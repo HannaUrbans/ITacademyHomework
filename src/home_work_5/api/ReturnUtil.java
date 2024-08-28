@@ -1,5 +1,8 @@
 package home_work_5.api;
 
+/**
+ * Класс для создания объекта, который используется в методах по созданию коллекций объектов типа Animal и Person (см.класс CollectionCreation)
+ */
 public class ReturnUtil<T> {
     private T result;
     private long duration;

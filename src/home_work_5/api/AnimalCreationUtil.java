@@ -6,6 +6,11 @@ import java.util.Random;
 import static home_work_5.api.Characters.*;
 import static home_work_5.api.Characters.LATIN_LETTERS;
 
+/**
+ * Класс для генерации объекта типа Animal
+ * Возраст генерируется рандомно в указанном диапазоне
+ * При генерации клички рандомно выбирается одно из чисел, каждому из чисел соответствует свой метод в switch
+ */
 public class AnimalCreationUtil {
     static Random random = new Random();
 
@@ -23,7 +28,6 @@ public class AnimalCreationUtil {
 
         return random.nextInt(maxAge - minAge + 1) + minAge;
     }
-
 
     public static String generateAnimalNick() {
         int nickGeneration = random.nextInt(4);

@@ -7,6 +7,11 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 public class FileReaderUtil {
+    /**
+     * Метод для чтения из файла
+     * @param filePath - адрес файла
+     * @return - возвращает информацию, прочитанную побайтово и конвертированную в String
+     */
     public static String readFromFile(String filePath) {
         String fileContent = "";
 
