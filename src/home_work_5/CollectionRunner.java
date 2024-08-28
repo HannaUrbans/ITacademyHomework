@@ -101,8 +101,8 @@ public class CollectionRunner {
         printResults("удаления с помощью Clear", linkedPersonList, countDurationOfRemovalWithClear(linkedPersonListToRemove2));
         printResults("Стандартная сортировка. PasswordLengthComparator",linkedPersonList, measureDurationStandardComparator(linkedPersonListToSort1, new PasswordLengthComparator()));
         printResults("Стандартная сортировка. PasswordLengthAndNickComparator",linkedPersonList, measureDurationStandardComparator(linkedPersonListToSort2, new PasswordLengthAndNickComparator()));
-        printResults("Пузырьковая сортировка. PasswordLengthComparator",linkedPersonList, measureDurationBubbleComparator(linkedPersonListToSort3, new PasswordLengthComparator()));
-        printResults("Пузырьковая сортировка. PasswordLengthAndNickComparator",linkedPersonList, measureDurationBubbleComparator(linkedPersonListToSort4, new PasswordLengthAndNickComparator()));
+        printResults("Алгоритм быстрой сортировки. PasswordLengthComparator",linkedPersonList, measureDurationQuickSortComparator(linkedPersonListToSort3, new PasswordLengthComparator()));
+        printResults("Алгоритм быстрой сортировки. PasswordLengthAndNickComparator",linkedPersonList, measureDurationQuickSortComparator(linkedPersonListToSort4, new PasswordLengthAndNickComparator()));
 
         System.out.println("____________________________________________");
         System.out.println();
@@ -116,8 +116,8 @@ public class CollectionRunner {
         printResults("удаления с помощью Clear", linkedAnimalList, countDurationOfRemovalWithClear(linkedAnimalListToRemove2));
         printResults("Стандартная сортировка. AgeComparator",linkedAnimalList, measureDurationStandardComparator(linkedAnimalListToSort1, new AgeComparator()));
         printResults("Стандартная сортировка. AgeAndNickComparator",linkedAnimalList, measureDurationStandardComparator(linkedAnimalListToSort2, new AgeAndNickComparator()));
-        printResults("Пузырьковая сортировка. AgeComparator",linkedAnimalList, measureDurationBubbleComparator(linkedAnimalListToSort3, new AgeComparator()));
-        printResults("Пузырьковая сортировка. AgeAndNickComparator",linkedAnimalList, measureDurationBubbleComparator(linkedAnimalListToSort4, new AgeAndNickComparator()));
+        printResults("Алгоритм быстрой сортировки. AgeComparator",linkedAnimalList, measureDurationQuickSortComparator(linkedAnimalListToSort3, new AgeComparator()));
+        printResults("Алгоритм быстрой сортировки. AgeAndNickComparator",linkedAnimalList, measureDurationQuickSortComparator(linkedAnimalListToSort4, new AgeAndNickComparator()));
 
         System.out.println("____________________________________________");
         System.out.println();
@@ -131,8 +131,8 @@ public class CollectionRunner {
         printResults("удаления с помощью Clear", arrayPersonList, countDurationOfRemovalWithClear(arrayPersonListToRemove2));
         printResults("Стандартная сортировка. PasswordLengthComparator",arrayPersonList, measureDurationStandardComparator(arrayPersonListToSort1, new PasswordLengthComparator()));
         printResults("Стандартная сортировка. PasswordLengthAndNickComparator",arrayPersonList, measureDurationStandardComparator(arrayPersonListToSort2, new PasswordLengthAndNickComparator()));
-        printResults("Пузырьковая сортировка. PasswordLengthComparator",arrayPersonList, measureDurationBubbleComparator(arrayPersonListToSort3, new PasswordLengthComparator()));
-        printResults("Пузырьковая сортировка. PasswordLengthAndNickComparator",arrayPersonList, measureDurationBubbleComparator(arrayPersonListToSort4, new PasswordLengthAndNickComparator()));
+        printResults("Алгоритм быстрой сортировки. PasswordLengthComparator",arrayPersonList, measureDurationQuickSortComparator(arrayPersonListToSort3, new PasswordLengthComparator()));
+        printResults("Алгоритм быстрой сортировки. PasswordLengthAndNickComparator",arrayPersonList, measureDurationQuickSortComparator(arrayPersonListToSort4, new PasswordLengthAndNickComparator()));
 
         System.out.println("____________________________________________");
         System.out.println();
@@ -146,8 +146,8 @@ public class CollectionRunner {
         printResults("удаления с помощью Clear", arrayAnimalList, countDurationOfRemovalWithClear(arrayAnimalListToRemove2));
         printResults("Стандартная сортировка. AgeComparator",arrayAnimalList, measureDurationStandardComparator(arrayAnimalListToSort1, new AgeComparator()));
         printResults("Стандартная сортировка. AgeAndNickComparator",arrayAnimalList, measureDurationStandardComparator(arrayAnimalListToSort2, new AgeAndNickComparator()));
-        printResults("Пузырьковая сортировка. AgeComparator",arrayAnimalList, measureDurationBubbleComparator(arrayAnimalListToSort3, new AgeComparator()));
-        printResults("Пузырьковая сортировка. AgeAndNickComparator",arrayAnimalList, measureDurationBubbleComparator(arrayAnimalListToSort4, new AgeAndNickComparator()));
+        printResults("Алгоритм быстрой сортировки. AgeComparator",arrayAnimalList, measureDurationQuickSortComparator(arrayAnimalListToSort3, new AgeComparator()));
+        printResults("Алгоритм быстрой сортировки. AgeAndNickComparator",arrayAnimalList, measureDurationQuickSortComparator(arrayAnimalListToSort4, new AgeAndNickComparator()));
 
         System.out.println("____________________________________________");
         System.out.println();
@@ -163,8 +163,8 @@ public class CollectionRunner {
         printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoArray(personHashSetToSort2, Person.class, new PasswordLengthAndNickComparator()));
         printResults("Сортировка стандартная посредством конвертации в List. PasswordLengthComparator",personHashSet, measureSortWithConvertationIntoListStandardSort(personHashSetToSort3, new PasswordLengthComparator()));
         printResults("Сортировка стандартная посредством конвертации в List. PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoListStandardSort(personHashSetToSort4, new PasswordLengthAndNickComparator()));
-        printResults("Сортировка пузырьковая посредством конвертации в List. PasswordLengthComparator",personHashSet, measureSortWithConvertationIntoListBubbleSort(personHashSetToSort5, new PasswordLengthComparator()));
-        printResults("Сортировка пузырьковая посредством конвертации в List. PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoListBubbleSort(personHashSetToSort6, new PasswordLengthAndNickComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. PasswordLengthComparator",personHashSet, measureSortWithConvertationIntoListQuickSort(personHashSetToSort5, new PasswordLengthComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoListQuickSort(personHashSetToSort6, new PasswordLengthAndNickComparator()));
         printResults("Сортировка посредством конвертации в TreeSet. PasswordLengthComparator",personHashSet, measureSortWithConvertationIntoTreeset(personHashSetToSort7, new PasswordLengthComparator()));
         printResults("Сортировка посредством конвертации в TreeSet. PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoTreeset(personHashSetToSort8, new PasswordLengthAndNickComparator()));
 
@@ -182,8 +182,8 @@ public class CollectionRunner {
         printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoArray(animalHashSetToSort2, Animal.class, new AgeAndNickComparator()));
         printResults("Сортировка стандартная посредством конвертации в List. AgeComparator",animalHashSet, measureSortWithConvertationIntoListStandardSort(animalHashSetToSort3, new AgeComparator()));
         printResults("Сортировка стандартная посредством конвертации в List. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoListStandardSort(animalHashSetToSort4, new AgeAndNickComparator()));
-        printResults("Сортировка пузырьковая посредством конвертации в List. AgeComparator",animalHashSet, measureSortWithConvertationIntoListBubbleSort(animalHashSetToSort5, new AgeComparator()));
-        printResults("Сортировка пузырьковая посредством конвертации в List. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoListBubbleSort(animalHashSetToSort6, new AgeAndNickComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. AgeComparator",animalHashSet, measureSortWithConvertationIntoListQuickSort(animalHashSetToSort5, new AgeComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoListQuickSort(animalHashSetToSort6, new AgeAndNickComparator()));
         printResults("Сортировка посредством конвертации в TreeSet. AgeComparator",animalHashSet, measureSortWithConvertationIntoTreeset(animalHashSetToSort7, new AgeComparator()));
         printResults("Сортировка посредством конвертации в TreeSet. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoTreeset(animalHashSetToSort8, new AgeAndNickComparator()));
 
