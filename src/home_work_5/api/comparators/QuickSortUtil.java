@@ -28,7 +28,7 @@ public class QuickSortUtil {
     public static <T> void sortByQuickSort(List<T> list, int left, int right, Comparator<? super T> comparator) {
         if (left < right) {
             // Выбор опорного элемента
-            T pivot = list.get(left);
+            T pivot = list.get(right);
             // Разделение списка на две части и получение индекса опорного элемента
             int pivotIndex = partition(list, left, right, pivot, comparator);
             // Рекурсивная сортировка левой части
@@ -73,4 +73,3 @@ public class QuickSortUtil {
         }
     }
 }
-

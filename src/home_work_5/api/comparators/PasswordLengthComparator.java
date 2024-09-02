@@ -10,6 +10,9 @@ public class PasswordLengthComparator implements Comparator<Person> {
         if (o1 == null || o2 == null) {
             throw new IllegalArgumentException("Сравнивать с null нельзя");
         }
+        if (o1.getPassword()== o2.getPassword()){
+            return 0;
+        }
         return Integer.compare(o1.getPassword().length(), o2.getPassword().length());
     }
 }
