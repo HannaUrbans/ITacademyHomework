@@ -5,12 +5,13 @@ import home_work_5.api.comparators.AgeAndNickComparator;
 import home_work_5.api.comparators.PasswordLengthAndNickComparator;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 import static home_work_5.Animal.generateAnimal;
 import static home_work_5.Person.generatePerson;
 
 public class CollectionCreation {
-    private final static int quantity = 1_000;
+    private final static int quantity = 100_000;
 
 
     //метод для создания массивов Person и Animal
@@ -29,16 +30,34 @@ public class CollectionCreation {
         }
         return array;
     }
-/* Этот метод был до прописывания метода с дженериками
-    public static Person[] createPersonArray() {
-        Person[] array = new Person[quantity];
 
+    //тестовый метод с лямбдами
+    private static <T, C extends Collection<T>> ReturnUtil<C> generateCollection(Supplier<T> supplier, Supplier<C> collectionSupplier) {
+        long startTime = System.currentTimeMillis();
+        C collection = collectionSupplier.get();
         for (int i = 0; i < quantity; i++) {
-            array[i] = generatePerson();
+            collection.add(supplier.get());
         }
-        return array;
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        return new ReturnUtil<>(collection, duration);
     }
-*/
+
+    //тестовый метод с лямбдами
+    public static ReturnUtil<List<Person>> generatePersonLinkedList0() {
+        return generateCollection(Person::new, LinkedList::new);
+    }
+
+    //тестовый метод с лямбдами
+    public static ReturnUtil<List<Person>> generatePersonArrayList0() {
+        return generateCollection(Person::new, ArrayList::new);
+    }
+
+    //тестовый метод с лямбдами
+    public static ReturnUtil<Set<Person>> generatePersonHashset0() {
+        return generateCollection(Person::new, HashSet::new);
+    }
+
     public static ReturnUtil<List<Person>> generatePersonLinkedList1(Person[] array) {
 
         long startTime = System.currentTimeMillis();

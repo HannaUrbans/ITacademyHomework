@@ -104,18 +104,19 @@ public class CollectionRunner {
         Set<Animal> animalTreeSetToRemove2 = new TreeSet<>(new AgeAndNickComparator());
         animalTreeSetToRemove2.addAll(animalTreeSet);
 
-        System.out.println("LINKED LIST PERSON");
+       /** System.out.println("LINKED LIST PERSON");
         //print(linkedPersonList);
+        printResults("тестовое заполнение метода с лямбдами", generatePersonLinkedList0().getResult(), generatePersonLinkedList0().getDuration());
         printResults("заполнение через создание массива и конвертации массива в ", linkedPersonList, resultCreationPersonLinkedList1.getDuration());
         printResults("заполнение через add", linkedPersonList, resultCreationPersonLinkedList2.getDuration());
         printResults("итерация с помощью Итератора", linkedPersonList, countDurationOfIteratorIteration(linkedPersonList));
         printResults("итерация с помощью конвертации в массив", linkedPersonList, countDurationOfWithConvertationIntoArrayIteration(linkedPersonList, Person.class));
         printResults("удаления с помощью Итератора", linkedPersonList, countDurationOfRemovalWithIterator(linkedPersonListToRemove1));
         printResults("удаления с помощью Clear", linkedPersonList, countDurationOfRemovalWithClear(linkedPersonListToRemove2));
-        //printResults("Стандартная сортировка. PasswordLengthComparator",linkedPersonList, measureDurationStandardComparator(linkedPersonListToSort1, new PasswordLengthComparator()));
-        //printResults("Стандартная сортировка. PasswordLengthAndNickComparator",linkedPersonList, measureDurationStandardComparator(linkedPersonListToSort2, new PasswordLengthAndNickComparator()));
-        //printResults("Алгоритм быстрой сортировки. PasswordLengthComparator",linkedPersonList, measureDurationQuickSortComparator(linkedPersonListToSort3, new PasswordLengthComparator()));
-        //printResults("Алгоритм быстрой сортировки. PasswordLengthAndNickComparator",linkedPersonList, measureDurationQuickSortComparator(linkedPersonListToSort4, new PasswordLengthAndNickComparator()));
+        printResults("Стандартная сортировка. PasswordLengthComparator",linkedPersonList, measureDurationStandardComparator(linkedPersonListToSort1, new PasswordLengthComparator()));
+        printResults("Стандартная сортировка. PasswordLengthAndNickComparator",linkedPersonList, measureDurationStandardComparator(linkedPersonListToSort2, new PasswordLengthAndNickComparator()));
+        printResults("Алгоритм быстрой сортировки. PasswordLengthComparator",linkedPersonList, measureDurationQuickSortComparator(linkedPersonListToSort3, new PasswordLengthComparator()));
+        printResults("Алгоритм быстрой сортировки. PasswordLengthAndNickComparator",linkedPersonList, measureDurationQuickSortComparator(linkedPersonListToSort4, new PasswordLengthAndNickComparator()));
 
         System.out.println("____________________________________________");
         System.out.println();
@@ -135,9 +136,10 @@ public class CollectionRunner {
 
         System.out.println("____________________________________________");
         System.out.println();
-
+*/
         System.out.println("ARRAYLIST PERSON");
         //print(arrayPersonList);
+        printResults("тестовое заполнение метода с лямбдами", generatePersonArrayList0().getResult(), generatePersonArrayList0().getDuration());
         printResults("заполнение через создание массива и конвертации массива в ", arrayPersonList, resultCreationPersonArrayList1.getDuration());
         printResults("заполнение через add", arrayPersonList, resultCreationPersonArrayList2.getDuration());
         printResults("итерация с помощью Итератора", arrayPersonList, countDurationOfIteratorIteration(arrayPersonList));
@@ -152,23 +154,24 @@ public class CollectionRunner {
         System.out.println("____________________________________________");
         System.out.println();
 
-        /**System.out.println("ARRAYLIST ANIMAL");
-         //print(arrayAnimalList);
-         printResults("заполнение", arrayAnimalList, resultCreationAnimalArrayList.getDuration());
-         printResults("итерация с помощью Итератора", arrayAnimalList, countDurationOfIteratorIteration(arrayAnimalList));
-         printResults("итерация с помощью конвертации в массив", arrayAnimalList, countDurationOfWithConvertationIntoArrayIteration(arrayAnimalList, Animal.class));
-         printResults("удаления с помощью Итератора", arrayAnimalList, countDurationOfRemovalWithIterator(arrayAnimalListToRemove1));
-         printResults("удаления с помощью Clear", arrayAnimalList, countDurationOfRemovalWithClear(arrayAnimalListToRemove2));
-         printResults("Стандартная сортировка. AgeComparator", arrayAnimalList, measureDurationStandardComparator(arrayAnimalListToSort1, new AgeComparator()));
-         printResults("Стандартная сортировка. AgeAndNickComparator", arrayAnimalList, measureDurationStandardComparator(arrayAnimalListToSort2, new AgeAndNickComparator()));
-         printResults("Алгоритм быстрой сортировки. AgeComparator", arrayAnimalList, measureDurationQuickSortComparator(arrayAnimalListToSort3, new AgeComparator()));
-         printResults("Алгоритм быстрой сортировки. AgeAndNickComparator", arrayAnimalList, measureDurationQuickSortComparator(arrayAnimalListToSort4, new AgeAndNickComparator()));
+        System.out.println("ARRAYLIST ANIMAL");
+        //print(arrayAnimalList);
+        printResults("заполнение", arrayAnimalList, resultCreationAnimalArrayList.getDuration());
+        printResults("итерация с помощью Итератора", arrayAnimalList, countDurationOfIteratorIteration(arrayAnimalList));
+        printResults("итерация с помощью конвертации в массив", arrayAnimalList, countDurationOfWithConvertationIntoArrayIteration(arrayAnimalList, Animal.class));
+        printResults("удаления с помощью Итератора", arrayAnimalList, countDurationOfRemovalWithIterator(arrayAnimalListToRemove1));
+        printResults("удаления с помощью Clear", arrayAnimalList, countDurationOfRemovalWithClear(arrayAnimalListToRemove2));
+        printResults("Стандартная сортировка. AgeComparator", arrayAnimalList, measureDurationStandardComparator(arrayAnimalListToSort1, new AgeComparator()));
+        printResults("Стандартная сортировка. AgeAndNickComparator", arrayAnimalList, measureDurationStandardComparator(arrayAnimalListToSort2, new AgeAndNickComparator()));
+        printResults("Алгоритм быстрой сортировки. AgeComparator", arrayAnimalList, measureDurationQuickSortComparator(arrayAnimalListToSort3, new AgeComparator()));
+        printResults("Алгоритм быстрой сортировки. AgeAndNickComparator", arrayAnimalList, measureDurationQuickSortComparator(arrayAnimalListToSort4, new AgeAndNickComparator()));
 
-         System.out.println("____________________________________________");
-         System.out.println();
-         */
+        System.out.println("____________________________________________");
+        System.out.println();
+
         System.out.println("HASHSET PERSON");
         //print(personHashSet);
+        printResults("тестовое заполнение метода с лямбдами", generatePersonHashset0().getResult(), generatePersonHashset0().getDuration());
         printResults("заполнение через создание массива и конвертации массива в ", personHashSet, resultCreationPersonHashSet1.getDuration());
         printResults("заполнение через add", personHashSet, resultCreationPersonHashSet2.getDuration());
         printResults("итерация с помощью Итератора", personHashSet, countDurationOfIteratorIteration(personHashSet));
@@ -179,34 +182,34 @@ public class CollectionRunner {
         printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). PasswordLengthAndNickComparator", personHashSet, measureSortWithConvertationIntoArray(personHashSetToSort2, Person.class, new PasswordLengthAndNickComparator()));
         printResults("Сортировка стандартная посредством конвертации в List. PasswordLengthComparator", personHashSet, measureSortWithConvertationIntoListStandardSort(personHashSetToSort3, new PasswordLengthComparator()));
         printResults("Сортировка стандартная посредством конвертации в List. PasswordLengthAndNickComparator", personHashSet, measureSortWithConvertationIntoListStandardSort(personHashSetToSort4, new PasswordLengthAndNickComparator()));
-        //printResults("Быстрая сортировка посредством конвертации в List. PasswordLengthComparator",personHashSet, measureSortWithConvertationIntoListQuickSort(personHashSetToSort5, new PasswordLengthComparator()));
-        //printResults("Быстрая сортировка посредством конвертации в List. PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoListQuickSort(personHashSetToSort6, new PasswordLengthAndNickComparator()));
+       printResults("Быстрая сортировка посредством конвертации в List. PasswordLengthComparator",personHashSet, measureSortWithConvertationIntoListQuickSort(personHashSetToSort5, new PasswordLengthComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. PasswordLengthAndNickComparator",personHashSet, measureSortWithConvertationIntoListQuickSort(personHashSetToSort6, new PasswordLengthAndNickComparator()));
         printResults("Сортировка посредством конвертации в TreeSet. PasswordLengthComparator", personHashSet, measureSortWithConvertationIntoTreeset(personHashSetToSort7, new PasswordLengthComparator()));
         printResults("Сортировка посредством конвертации в TreeSet. PasswordLengthAndNickComparator", personHashSet, measureSortWithConvertationIntoTreeset(personHashSetToSort8, new PasswordLengthAndNickComparator()));
 
         System.out.println("____________________________________________");
         System.out.println();
 
-        /**      System.out.println("HASHSET ANIMAL");
-         //print(animalHashSet);
-         printResults("заполнение", animalHashSet, resultCreationAnimalHashSet.getDuration());
-         printResults("итерация с помощью Итератора", animalHashSet, countDurationOfIteratorIteration(animalHashSet));
-         printResults("итерация с помощью конвертации в массив", animalHashSet, countDurationOfWithConvertationIntoArrayIteration(animalHashSet, Animal.class));
-         printResults("удаления с помощью Итератора", animalHashSet, countDurationOfRemovalWithIterator(animalHashSetToRemove1));
-         printResults("удаления с помощью Clear", animalHashSet, countDurationOfRemovalWithClear(animalHashSetToRemove2));
-         printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). AgeComparator",animalHashSet, measureSortWithConvertationIntoArray(animalHashSetToSort1, Animal.class, new AgeComparator()));
-         printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoArray(animalHashSetToSort2, Animal.class, new AgeAndNickComparator()));
-         printResults("Сортировка стандартная посредством конвертации в List. AgeComparator",animalHashSet, measureSortWithConvertationIntoListStandardSort(animalHashSetToSort3, new AgeComparator()));
-         printResults("Сортировка стандартная посредством конвертации в List. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoListStandardSort(animalHashSetToSort4, new AgeAndNickComparator()));
-         printResults("Быстрая сортировка посредством конвертации в List. AgeComparator",animalHashSet, measureSortWithConvertationIntoListQuickSort(animalHashSetToSort5, new AgeComparator()));
-         printResults("Быстрая сортировка посредством конвертации в List. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoListQuickSort(animalHashSetToSort6, new AgeAndNickComparator()));
-         printResults("Сортировка посредством конвертации в TreeSet. AgeComparator",animalHashSet, measureSortWithConvertationIntoTreeset(animalHashSetToSort7, new AgeComparator()));
-         printResults("Сортировка посредством конвертации в TreeSet. AgeAndNickComparator",animalHashSet, measureSortWithConvertationIntoTreeset(animalHashSetToSort8, new AgeAndNickComparator()));
+        System.out.println("HASHSET ANIMAL");
+        //print(animalHashSet);
+        printResults("заполнение", animalHashSet, resultCreationAnimalHashSet.getDuration());
+        printResults("итерация с помощью Итератора", animalHashSet, countDurationOfIteratorIteration(animalHashSet));
+        printResults("итерация с помощью конвертации в массив", animalHashSet, countDurationOfWithConvertationIntoArrayIteration(animalHashSet, Animal.class));
+        printResults("удаления с помощью Итератора", animalHashSet, countDurationOfRemovalWithIterator(animalHashSetToRemove1));
+        printResults("удаления с помощью Clear", animalHashSet, countDurationOfRemovalWithClear(animalHashSetToRemove2));
+        printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). AgeComparator", animalHashSet, measureSortWithConvertationIntoArray(animalHashSetToSort1, Animal.class, new AgeComparator()));
+        printResults("Сортировка посредством конвертации в массив (с помощью Arrays.sort). AgeAndNickComparator", animalHashSet, measureSortWithConvertationIntoArray(animalHashSetToSort2, Animal.class, new AgeAndNickComparator()));
+        printResults("Сортировка стандартная посредством конвертации в List. AgeComparator", animalHashSet, measureSortWithConvertationIntoListStandardSort(animalHashSetToSort3, new AgeComparator()));
+        printResults("Сортировка стандартная посредством конвертации в List. AgeAndNickComparator", animalHashSet, measureSortWithConvertationIntoListStandardSort(animalHashSetToSort4, new AgeAndNickComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. AgeComparator", animalHashSet, measureSortWithConvertationIntoListQuickSort(animalHashSetToSort5, new AgeComparator()));
+        printResults("Быстрая сортировка посредством конвертации в List. AgeAndNickComparator", animalHashSet, measureSortWithConvertationIntoListQuickSort(animalHashSetToSort6, new AgeAndNickComparator()));
+        printResults("Сортировка посредством конвертации в TreeSet. AgeComparator", animalHashSet, measureSortWithConvertationIntoTreeset(animalHashSetToSort7, new AgeComparator()));
+        printResults("Сортировка посредством конвертации в TreeSet. AgeAndNickComparator", animalHashSet, measureSortWithConvertationIntoTreeset(animalHashSetToSort8, new AgeAndNickComparator()));
 
 
-         System.out.println("____________________________________________");
-         System.out.println();
-         */
+        System.out.println("____________________________________________");
+        System.out.println();
+
         System.out.println("TREESET PERSON");
         //print(personTreeSet);
         printResults("заполнение через создание массива и конвертации массива в ", personTreeSet, resultCreationPersonHashSet1.getDuration());
@@ -218,15 +221,15 @@ public class CollectionRunner {
         System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");
         System.out.println("____________________________________________");
         System.out.println();
-/**
- System.out.println("TREESET ANIMAL");
- //print(animalTreeSet);
- printResults("заполнение", animalTreeSet, resultCreationAnimalTreeSet.getDuration());
- printResults("итерация с помощью Итератора", animalTreeSet, countDurationOfIteratorIteration(animalTreeSet));
- printResults("итерация с помощью конвертации в массив", animalTreeSet, countDurationOfWithConvertationIntoArrayIteration(animalTreeSet, Animal.class));
- printResults("удаления с помощью Итератора", animalTreeSet, countDurationOfRemovalWithIterator(animalTreeSetToRemove1));
- printResults("удаления с помощью Clear", animalTreeSet, countDurationOfRemovalWithClear(animalTreeSetToRemove2));
- System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");*/
+
+        System.out.println("TREESET ANIMAL");
+        //print(animalTreeSet);
+        printResults("заполнение", animalTreeSet, resultCreationAnimalTreeSet.getDuration());
+        printResults("итерация с помощью Итератора", animalTreeSet, countDurationOfIteratorIteration(animalTreeSet));
+        printResults("итерация с помощью конвертации в массив", animalTreeSet, countDurationOfWithConvertationIntoArrayIteration(animalTreeSet, Animal.class));
+        printResults("удаления с помощью Итератора", animalTreeSet, countDurationOfRemovalWithIterator(animalTreeSetToRemove1));
+        printResults("удаления с помощью Clear", animalTreeSet, countDurationOfRemovalWithClear(animalTreeSetToRemove2));
+        System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");
     }
 
     private static void printResults(String operation, Collection<?> collection, long duration) {
