@@ -5,7 +5,7 @@ import home_work_1.utils.ICommunicationPrinter;
 import java.util.Objects;
 
 public class GreetingIfElseIf implements ICommunicationPrinter {
-    /*public static void main(String[] args) {
+    /**public static void main(String[] args) {
         GreetingIfElseIf printer = new GreetingIfElseIf();
         Scanner in = new Scanner(System.in);
         System.out.println("Введите Ваше имя");

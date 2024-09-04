@@ -3,7 +3,7 @@ package home_work_1;
 import home_work_1.utils.ICommunicationPrinter;
 
 public class GreetingSwitch implements ICommunicationPrinter {
-    /*public static void main(String[] args) {
+    /**public static void main(String[] args) {
         GreetingSwitch printer = new GreetingSwitch();
         Scanner in = new Scanner(System.in);
         System.out.println("Введите Ваше имя");

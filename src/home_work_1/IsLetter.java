@@ -9,27 +9,29 @@ public class IsLetter {
         System.out.println("Введите 1 символ.");
         String inputString = in.next();
 
-        /*if (inputString.isEmpty()) {
-            System.out.println("Вы ничего не ввели.");
-            return;
-        }
-        ПОЧЕМУ НЕ РАБОТАЕТ?*/
-
         char inputChar = inputString.charAt(0);
 
-        if (inputString.length() > 1) {
+        if (isNotCorrectSize(inputString)) {
             System.out.println("Вы ввели больше одного символа.");
             return;
         }
 
-        if (Character.isLetter(inputChar)) {
-            System.out.println("Вы ввели букву " + inputChar);
-        } else if (Character.isDigit(inputChar)) {
-            System.out.println("Вы ввели цифру " + inputChar);
-        } else {
-            System.out.println("Вы ввели символ " + inputChar);
-        }
+        System.out.println("Вы ввели " + specifyInput(inputChar) + inputChar);
 
         in.close();
+    }
+
+    public static String specifyInput(char input) {
+        if (Character.isLetter(input)) {
+            return "букву ";
+        } else if (Character.isDigit(input)) {
+            return "цифру ";
+        } else {
+            return "символ ";
+        }
+    }
+
+    public static boolean isNotCorrectSize(String input){
+        return input.length()>1;
     }
 }

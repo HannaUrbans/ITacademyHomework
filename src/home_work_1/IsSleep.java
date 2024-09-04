@@ -37,14 +37,7 @@ public class IsSleep {
             return;
         }
 
-        if (weekday && vacation){
-            System.out.println("Одновременно выбрать два значения нельзя");
-            return;
-        }
-        else if (!weekday && !vacation){
-            System.out.println("Вы не выбрали значение");
-            return;
-        }
+        checkCorrectInput(weekday, vacation);
 
         boolean sleepIn = sleepIn (weekday, vacation); //!вызываем метод и сохраняем результаты вызова функции
 
@@ -58,27 +51,19 @@ public class IsSleep {
 
     public static boolean sleepIn(boolean weekday, boolean vacation) {
         return !weekday || vacation;
-        /*
-        это idea подсказала "'if' statement can be simplified", у меня было
-         if (weekday && !vacation) {
-            return false;
-        } else {
-            return true;
-        }
-        */
     }
 
     public static boolean isInRange(char answer) {
         return answer == '+' || answer == '-';
-         /*
-        это idea подсказала "'if' statement can be simplified", у меня было
-         if (weekday && !vacation) {
-        if (answer == '+' || answer == '-') {
-            return true;
-        } else {
-            return false;
+    }
+
+    public static void checkCorrectInput(boolean weekday, boolean vacation){
+        if (weekday && vacation){
+            throw new IllegalArgumentException("Одновременно выбрать два значения нельзя");
         }
-        */
+        else if (!weekday && !vacation){
+            throw new IllegalArgumentException("Вы не выбрали значение");
+           }
     }
 }
 
