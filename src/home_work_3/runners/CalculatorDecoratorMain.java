@@ -1,9 +1,9 @@
 package home_work_3.runners;
 
 import home_work_3.calcs.additional.CalculatorWithCounterAutoDecorator;
-import home_work_3.calcs.additional.CalculatorWithCounterClassic;
 import home_work_3.calcs.additional.CalculatorWithMemoryDecorator;
 import home_work_3.calcs.api.ICalculator;
+import home_work_3.calcs.simple.CalculatorWithMathExtends;
 
 /**
  * 13.5 Создать класс CalculatorDecoratorMain в котором будет точка входа (main метод).
@@ -20,8 +20,8 @@ import home_work_3.calcs.api.ICalculator;
  */
 public class CalculatorDecoratorMain {
     public static void main(String[] args) {
-        // ICalculator calc = new CalculatorWithCounterAutoDecorator(new CalculatorWithMemoryDecorator(new CalculatorWithMathExtends()));
-        ICalculator calc = new CalculatorWithCounterClassic();
+        ICalculator calc = new CalculatorWithCounterAutoDecorator(new CalculatorWithMemoryDecorator(new CalculatorWithMathExtends()));
+        //ICalculator calc = new CalculatorWithCounterClassic();
 
         System.out.println(calc.add(calc.add(4.1, calc.multiply(15, 7)), calc.raiseToPower(calc.divide(28, 5), 2)));
 
