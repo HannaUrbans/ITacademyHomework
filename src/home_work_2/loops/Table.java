@@ -17,43 +17,44 @@ public class Table {
         //double потому что для округления надо иметь число с точкой
         //row - это совокупность строк, в которых строки с умножением на числа от 1 до 10, А НЕ ОДИНОЧНАЯ СТРОКА
         //totalRowNumber - несколько таких блоков
-        int totalRowNumber = (int) Math.ceil(totalColumnNumber / (double)maxColumnNumberInRow);
+        int totalRowNumber = (int) Math.ceil(totalColumnNumber / (double) maxColumnNumberInRow);
 
         for (int i = 0; i < totalRowNumber; i++) {
             //здесь мы указываем не конкретное число ДО, а в зависимости от количества столбцов в строке
-            int to = from + maxColumnNumberInRow + (maxColumnNumberInRow*i) - 1;
+            int to = from + maxColumnNumberInRow + (maxColumnNumberInRow * i) - 1;
 
             //рассчитывает, сколько столбцов ещё осталось в последней строке таблицы
             //maxColumnNumberInRow * i - количество столбцов, которые уже были обработаны в предыдущих строках
-            int tmp = totalColumnNumber - (maxColumnNumberInRow*i);
-            if (tmp < maxColumnNumberInRow){
+            int tmp = totalColumnNumber - (maxColumnNumberInRow * i);
+            if (tmp < maxColumnNumberInRow) {
                 //корректируем значение to, чтобы при необходимости в последнем row отображалось меньше, чем maxColumnNumberInRow
                 to = from + (maxColumnNumberInRow * i) + tmp - 1;
             }
 
-            printTable(from + (maxColumnNumberInRow * i),to);
-
-            for (int k = 1; k < 60; k++) {
-                System.out.print("-");
-            }
-            System.out.print("\n");
+            System.out.println(printTable(from + (maxColumnNumberInRow * i), to));
         }
 
     }
 
-    public static void printTable(int from, int to) {
+    public static String printTable(int from, int to) {
+        if (ExampleTasks.checkFalseRange(from,to)){
+            throw new IllegalArgumentException("Неверно введен интервал");
+        }
+
+        StringBuilder sb = new StringBuilder();
         int res;
-        //внешний цикл - на что умножаем (потому что идет строка 2*1 3*1 4*1...)
+        // внешний цикл - на что умножаем (потому что идет строка 2*1 3*1 4*1...)
         for (int i = 1; i <= 10; i++) {
-            //внутренний цикл - что умножаем
             for (int j = from; j <= to; j++) {
+                //внутренний цикл - что умножаем
                 res = i * j;
-                System.out.printf("%2d * %2d = %3d", j, i, res);
+                sb.append(String.format("%2d * %2d = %3d", j, i, res));
                 if (j < to) {
-                    System.out.print(" |");
+                    sb.append(" |");
                 }
             }
-            System.out.println("");
+            sb.append("\n");
         }
-}
+        return sb.toString();
+    }
 }

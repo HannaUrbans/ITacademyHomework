@@ -5,6 +5,8 @@ import home_work_2.utils.ArraysUtils;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static home_work_2.loops.ExampleTasks.checkFalseRange;
+
 public class ExampleTasksArrays {
     public static void main(String[] args) {
         int[] myArray = ArraysUtils.arrayRandom(50, 100);
@@ -23,27 +25,30 @@ public class ExampleTasksArrays {
         int firstNum = in.nextInt();
         System.out.println("Введите последнее число диапазона");
         int lastNum = in.nextInt();
-        if (lastNum <= firstNum) {
-            System.out.println("Введите корректный интервал");
+
+        if (checkFalseRange(firstNum, lastNum)) {
+            System.out.println("Последнее число должно быть больше первого");
+            return;
         } else {
-            System.out.println("Это массив, из которого удалили цифры от " + firstNum + " до " + lastNum + ": " + Arrays.toString(MakeArraySmall(myArray, firstNum, lastNum)));
+            System.out.println("Это массив, из которого удалили цифры от " + firstNum + " до " + lastNum + ": " + Arrays.toString(makeArraySmall(myArray, firstNum, lastNum)));
         }
 
-        if (findDigitSum(myArray) == Long.MIN_VALUE) {
-            System.out.println("Сумма превышает границы формата Long");
-        } else {
+        try {
+            findDigitSum(myArray);
             System.out.println("Это сумма цифр массива: " + findDigitSum(myArray));
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
         }
-
     }
 
     //2.4.1. Сумма четных положительных элементов массива
     public static int sumEvenPosElems(int[] myArray) {
         int sum = 0;
         for (int i = 0; i < myArray.length; i++) {
-            if (i > 0 && i % 2 == 0) {
-                sum += i;
+            if (myArray[i] > 0 && myArray[i] % 2 == 0) {
+                sum += myArray[i];
             }
+            isIntOverflow(sum);
         }
         return sum;
     }
@@ -84,19 +89,24 @@ public class ExampleTasksArrays {
 
     //2.4.4. Найти два наименьших (минимальных) элемента массива
     public static int[] findMinArrayElem(int[] myArray) {
-        int minValue1 = Integer.MAX_VALUE;
-        int minValue2 = Integer.MAX_VALUE;//не -1, потому что -1 теоретически может получиться, если массив будет содержать и отрицат. значения элементов
+        int minValue1 = Integer.MAX_VALUE;//не -1, потому что -1 теоретически может получиться, если массив будет содержать и отрицат. значения элементов
+        int minValue2 = Integer.MAX_VALUE;
+
         for (int i = 0; i < myArray.length; i++) {
             if (myArray[i] <= minValue1) {
                 minValue2 = minValue1;
                 minValue1 = myArray[i];
             }
         }
-        return new int[]{minValue1, minValue2};
+        if (minValue2 != Integer.MAX_VALUE) {
+            return new int[]{minValue1, minValue2};
+        } else {
+            return new int[]{minValue1};
+        }
     }
 
     //2.4.5. Сжать массив, удалив элементы, принадлежащие интервалу
-    public static int[] MakeArraySmall(int[] myArray, int firstNumtoDelete, int lastNumToDelete) {
+    public static int[] makeArraySmall(int[] myArray, int firstNumtoDelete, int lastNumToDelete) {
 
         int newArrayLength = 0;
 
@@ -115,7 +125,7 @@ public class ExampleTasksArrays {
             }
         }
 
-        //заполняем нулями разницу между длиной корткого и длинного массива
+        //заполняем нулями разницу между длиной короткого и длинного массива
         for (int i = newArrayLength; i < myArray.length; i++) {
             newArray[i] = 0;
         }
@@ -128,18 +138,23 @@ public class ExampleTasksArrays {
     public static long findDigitSum(int[] myArray) {
         long digitSum = 0;
         for (int number : myArray) {
-
-            String numberStr = String.valueOf(number);
-            for (int i = 0; i < numberStr.length(); i++) {
-                char digitChar = numberStr.charAt(i);
-                int digit = Character.getNumericValue(digitChar);
-                digitSum += digit;
-
-                if (digitSum > Long.MAX_VALUE) {
-                    digitSum = Long.MIN_VALUE;
-                }
-            }
+            digitSum += number;
         }
+        isLongOverflow(digitSum);
         return digitSum;
+    }
+
+    //этот метод только для сложения чисел от 0!
+    public static void isIntOverflow(int sum) {
+        if (sum < 0) {
+            throw new ArithmeticException("Сумма превышает границы формата int");
+        }
+    }
+
+    //этот метод только для сложения чисел от 0!
+    public static void isLongOverflow(long sum) {
+        if (sum < 0) {
+            throw new ArithmeticException("Сумма превышает границы формата long");
+        }
     }
 }

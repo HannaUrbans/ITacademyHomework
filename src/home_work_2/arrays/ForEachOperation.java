@@ -4,64 +4,62 @@ public class ForEachOperation implements IArraysOperation {
 
     //2.2.1. Вывести все элементы в консоль.
     @Override
-    public void printElements(int[] inputArray) {
+    public String printElements(int[] inputArray) {
+        StringBuilder sb1 = new StringBuilder();
         int count = 0;
 
         for (int value : inputArray) {
-            System.out.print(value);
+            sb1.append(String.valueOf(value));
             count++;
+
             if (count < inputArray.length) {
-                System.out.print(" ");
+                sb1.append(" ");
             }
         }
-        System.out.println();
-
+      return sb1.toString();
     }
 
     //2.2.2. Вывести каждый второй элемент массива в консоль.
     @Override
-    public void printEachSecondElement(int[] inputArray) {
-        int index = 0;
+    public String printEachSecondElement(int[] inputArray) {
+        StringBuilder sb2 = new StringBuilder();
+        boolean isFirst = true;
 
         if (inputArray.length == 1) {
-            System.out.println("Вы ввели только один элемент");
-            return;
+            return null;
         }
+
+        int index = 0;
 
         for (int value : inputArray) {
             if (index % 2 != 0) {
-                System.out.print(value);
-                if (index < inputArray.length - 2) {
-                    System.out.print(" ");
+                if (!isFirst) {
+                    sb2.append(" ");
                 }
+                sb2.append(value);
+                isFirst = false;
             }
             index++;
         }
-        System.out.println();
+        return sb2.toString();
     }
 
     //2.2.3. Вывести все элементы массива в консоль в обратном порядке.
     @Override
-    public void printReversedElements(int[] inputArray) {
-        int index = 0;
+    public String printReversedElements(int[] inputArray) {
+        StringBuilder sb3 = new StringBuilder();
 
-        int[] reversedArray = new int[inputArray.length];
-        int reverseIndex = inputArray.length - 1;
+        boolean isFirst = true;
         for (int value : inputArray) {
-            reversedArray[reverseIndex] = value;
-            reverseIndex--;
-        }
 
-        boolean first = true;
-        for (int value : reversedArray) {
-            //после первого цикла устанавливаем флаг в положение false
-            if (!first) {
-                System.out.print(" ");
+            if (!isFirst) {
+                sb3.append(" ");
             } else {
-                first = false;
+                isFirst = false;
             }
-            System.out.print(value);
+            sb3.append(value);
         }
+            return (sb3.reverse()).toString();
     }
 }
 

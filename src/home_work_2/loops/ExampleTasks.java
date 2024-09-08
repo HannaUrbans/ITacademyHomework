@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import static home_work_2.loops.overflowCheckUtils.FibonacciOverflow.overflowNum;
+import static home_work_2.loops.overflowCheckUtils.ReversedOverflow.checkOverflow;
+
 public class ExampleTasks {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -13,7 +16,7 @@ public class ExampleTasks {
         System.out.println("Наибольшая цифра числа " + a + ": " + findMaxDigit(a));
 
         System.out.print("Вероятность выпадения чётного числа: ");
-        testEvenProbability();
+        System.out.println(EvenProbabilityCheck());
 
         int[][] countedArray = countOddEvenDigits(a);
         System.out.print("Число " + a + " содержит ");
@@ -55,17 +58,20 @@ public class ExampleTasks {
             System.out.println("Введите число больше нуля");
             return;
         }
-        if (maxNum < minNum) {
+        if (checkFalseRange(minNum, maxNum)) {
             System.out.println("Последнее число должно быть больше первого");
             return;
         }
+
         System.out.println("Уточните шаг");
-        int size = in.nextInt();
-        if (!isNatural(size) || size > maxNum - minNum) {
+        int interval = in.nextInt();
+
+        if (checkFalseInterval(minNum, maxNum, interval)) {
             System.out.println("Введите корректный шаг");
             return;
         }
-        System.out.println("Запрашиваемый ряд натуральных чисел от " + minNum + " до " + maxNum + " с шагом " + size + ": " + lineOfNums(minNum, maxNum, size));
+
+        System.out.println("Запрашиваемый ряд натуральных чисел от " + minNum + " до " + maxNum + " с шагом " + interval + ": " + lineOfNums(minNum, maxNum, interval));
 
         System.out.println("Введите число для отображения задом наперёд");
         int numToReverse = in.nextInt();
@@ -79,9 +85,9 @@ public class ExampleTasks {
     //Найти наибольшую цифру натурального числа
     public static int findMaxDigit(int num) {
         int tmp = Math.abs(num);
-        int maxDigit = -1;
+        int maxDigit = 0;
 
-        while (tmp != 0) {
+        while (tmp > 0) {
             int current = tmp % 10;
             if (current > maxDigit) {
                 maxDigit = current;
@@ -94,7 +100,7 @@ public class ExampleTasks {
     }
 
     //Вероятность четных случайных чисел
-    public static void testEvenProbability() {
+    public static double EvenProbabilityCheck() {
         int i = 0;
         Random random = new Random();
         for (int k = 0; k <= 1000; k++) {
@@ -103,8 +109,7 @@ public class ExampleTasks {
                 i++;
             }
         }
-        double probability = (double) i / 1000 * 100;
-        System.out.println(probability);
+        return (double) i / 1000 * 100;
     }
 
     //Посчитать четные и нечетные цифры числа
@@ -146,6 +151,9 @@ public class ExampleTasks {
     //число Фибоначчи
     public static String showFibonacci(int num) {
         int numToEndWith = Math.abs(num);
+        if (numToEndWith >= overflowNum()) {
+            throw new ArithmeticException("Произошло переполнение");
+        }
 
         int[] fibArray = new int[numToEndWith];
 
@@ -193,9 +201,18 @@ public class ExampleTasks {
         }
 
         String reversedString = new String(charArray); //созадется строка из символов
-        int reversedNum = Integer.parseInt(reversedString);
 
-        return reversedNum;
+        checkOverflow(reversedString);
+
+        return Integer.parseInt(reversedString);
+    }
+
+    public static boolean checkFalseInterval(int startNum, int endNum, int interval) {
+        return (!isNatural(interval) || interval > endNum - startNum);
+    }
+
+    public static boolean checkFalseRange(int startNum, int endNum) {
+        return (endNum < startNum);
     }
 
     public static boolean isNatural(int numToCheck) {

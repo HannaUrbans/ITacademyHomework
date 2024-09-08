@@ -4,45 +4,48 @@ public class ForOperation implements IArraysOperation {
 
     //2.2.1. Вывести все элементы в консоль.
     @Override
-    public void printElements(int[] inputArray) {
+    public String printElements(int[] inputArray) {
+        StringBuilder sb1 = new StringBuilder();
         for (int x = 0; x < inputArray.length; x++) {
-            System.out.print(inputArray[x]);
+            sb1.append(inputArray[x]);
             if (x < inputArray.length - 1) {
-                System.out.print(" ");
+                sb1.append(" ");
             }
         }
-        System.out.println();
+        return sb1.toString();
     }
 
     //2.2.2. Вывести каждый второй элемент массива в консоль.
     @Override
-    public void printEachSecondElement(int[] inputArray) {
+    public String printEachSecondElement(int[] inputArray) {
+        StringBuilder sb2 = new StringBuilder();
 
         if (inputArray.length == 1) {
-            System.out.println("Вы ввели только один элемент");
-            return;
+            return null;
         }
+
         for (int x = 1; x < inputArray.length; x += 2) {
             {
-                System.out.print(inputArray[x]);
+                sb2.append(inputArray[x]);
                 if (x < inputArray.length - 2) {
-                    System.out.print(" ");
+                    sb2.append(" ");
                 }
             }
         }
-        System.out.println();
+        return sb2.toString();
     }
 
     //2.2.3. Вывести все элементы массива в консоль в обратном порядке.
     @Override
-    public void printReversedElements(int[] inputArray) {
+    public String printReversedElements(int[] inputArray) {
+        StringBuilder sb3 = new StringBuilder();
 
         for (int x = inputArray.length; x > 0; x--) {
-            System.out.print(inputArray[x - 1]);
+            sb3.append(inputArray[x - 1]);
             if (x > 1) {
-                System.out.print(" ");
+                sb3.append(" ");
             }
         }
-        System.out.println();
+        return sb3.toString();
     }
 }

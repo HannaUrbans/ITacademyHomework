@@ -13,30 +13,30 @@ public class IArraysOperationMain {
 
         if (array != null) {
             System.out.println("DoWhileOperation:");
-            doWhileOperation.printElements(array);
-            doWhileOperation.printEachSecondElement(array);
-            doWhileOperation.printReversedElements(array);
+            System.out.println(doWhileOperation.printElements(array));
+            System.out.println(doWhileOperation.printEachSecondElement(array));
+            System.out.println(doWhileOperation.printReversedElements(array));
 
             System.out.println("");
 
             System.out.println("WhileOperation:");
-            whileOperation.printElements(array);
-            whileOperation.printEachSecondElement(array);
-            whileOperation.printReversedElements(array);
+            System.out.println(whileOperation.printElements(array));
+            System.out.println(whileOperation.printEachSecondElement(array));
+            System.out.println(whileOperation.printReversedElements(array));
 
             System.out.println("");
 
             System.out.println("ForOperation:");
-            forOperation.printElements(array);
-            forOperation.printEachSecondElement(array);
-            forOperation.printReversedElements(array);
+            System.out.println(forOperation.printElements(array));
+            System.out.println(forOperation.printEachSecondElement(array));
+            System.out.println(forOperation.printReversedElements(array));
 
             System.out.println("");
 
             System.out.println("ForEachOperation:");
-            forEachOperation.printElements(array);
-            forEachOperation.printEachSecondElement(array);
-            forEachOperation.printReversedElements(array);
+            System.out.println(forEachOperation.printElements(array));
+            System.out.println(forEachOperation.printEachSecondElement(array));
+            System.out.println(forEachOperation.printReversedElements(array));
         }
     }
 }

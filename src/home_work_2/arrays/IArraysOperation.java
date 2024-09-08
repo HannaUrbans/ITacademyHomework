@@ -1,9 +1,9 @@
 package home_work_2.arrays;
 
 public interface IArraysOperation {
-    void printElements(int[] array);
+    String printElements(int[] array);
 
-    void printEachSecondElement(int[] array);
+    String printEachSecondElement(int[] array);
 
-    void printReversedElements(int[] array);
+    String printReversedElements(int[] array);
 }

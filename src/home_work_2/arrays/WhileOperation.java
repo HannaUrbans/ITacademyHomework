@@ -4,52 +4,54 @@ public class WhileOperation implements IArraysOperation {
 
     // 2.2.1. Вывести все элементы в консоль.
     @Override
-    public void printElements(int[] inputArray) {
+    public String printElements(int[] inputArray) {
+        StringBuilder sb1 = new StringBuilder();
         int k = 0;
 
         while (k < inputArray.length) {
-            System.out.print(inputArray[k]);
+            sb1.append(inputArray[k]);
             if (k < inputArray.length - 1) {
-                System.out.print(" ");
+                sb1.append(" ");
             }
             k++;
         }
-        System.out.println();
+        return sb1.toString();
     }
 
     //2.2.2. Вывести каждый второй элемент массива в консоль.
     @Override
-    public void printEachSecondElement(int[] inputArray) {
+    public String printEachSecondElement(int[] inputArray) {
+        StringBuilder sb2 = new StringBuilder();
         int k = 1;
 
         if (inputArray.length == 1) {
-            System.out.println("Вы ввели только один элемент");
-            return;
+            return null;
         }
         while (k < inputArray.length) {
             if (k > 2) {
-                System.out.print(" " + inputArray[k]);
+                sb2.append(" " + inputArray[k]);
                 k += 2;
             } else {
-                System.out.print(inputArray[k]);
+                sb2.append(inputArray[k]);
                 k += 2;
             }
         }
-        System.out.println();
+        return sb2.toString();
     }
 
     //2.2.3. Вывести все элементы массива в консоль в обратном порядке.
     @Override
-    public void printReversedElements(int[] inputArray) {
+    public String printReversedElements(int[] inputArray) {
+        StringBuilder sb3 = new StringBuilder();
         int k = inputArray.length;
 
         while (k > 0) {
-            System.out.print(inputArray[k - 1]);
+            sb3.append(inputArray[k - 1]);
             if (k != 1) {
-                System.out.print(" ");
+                sb3.append(" ");
             }
             k--;
         }
-        System.out.println();
+        return sb3.toString();
     }
 }

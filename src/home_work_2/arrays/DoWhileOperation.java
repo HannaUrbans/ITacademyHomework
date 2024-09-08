@@ -4,54 +4,57 @@ public class DoWhileOperation implements IArraysOperation {
 
     // 2.2.1. Вывести все элементы в консоль.
     @Override
-    public void printElements(int[] inputArray) {
+    public String printElements(int[] inputArray) {
+        StringBuilder sb1 = new StringBuilder();
         int i = 0;
 
         do {
-            System.out.print(inputArray[i]);
+            sb1.append(inputArray[i]);
             if (i < inputArray.length - 1) {
-                System.out.print(" ");
+                sb1.append(" ");
             }
             i++;
-        }
-        while (i < inputArray.length);
-        System.out.println();
+        } while (i < inputArray.length);
+
+        return sb1.toString();
     }
 
     //2.2.2. Вывести каждый второй элемент массива в консоль.
     @Override
-    public void printEachSecondElement(int[] inputArray) {
+    public String printEachSecondElement(int[] inputArray) {
+        StringBuilder sb2 = new StringBuilder();
+        if (inputArray.length == 1) {
+            return null;
+        }
+
         int i = 1;
 
-        if (inputArray.length == 1) {
-            System.out.println("Вы ввели только один элемент");
-            return;
-        }
-
         do {
-            System.out.print(inputArray[i]);
+            sb2.append(inputArray[i]);
             i += 2;
+
             if (i < inputArray.length) {
-                System.out.print(" ");
+                sb2.append(" ");
             }
-        }
-        while (i < inputArray.length);
-        System.out.println();
+        } while (i < inputArray.length);
+
+        return sb2.toString();
     }
 
     //2.2.3. Вывести все элементы массива в консоль в обратном порядке.
     @Override
-    public void printReversedElements(int[] inputArray) {
+    public String printReversedElements(int[] inputArray) {
+        StringBuilder sb3 = new StringBuilder();
         int i = inputArray.length;
 
         do {
-            System.out.print(inputArray[i - 1]);
-            i--;
-            if (i > 0) {
-                System.out.print(" ");
+            sb3.append(inputArray[i - 1]);
+            if (i > 1) {
+                sb3.append(" ");
             }
-        }
-        while (i > 0);
-        System.out.println();
+            i--;
+        } while (i > 0);
+
+        return sb3.toString();
     }
 }
