@@ -17,20 +17,27 @@ public class CalculatorAdapter {
 
     public CalculatorAdapter() {
         this.calculator = new CalculatorWithMathExtends();
-        this.queueHandler.add(new AddHandler(this.calculator));
-        this.queueHandler.add(new PlusHandler(this.calculator));
-        this.queueHandler.add(new NotAddHandler(this.calculator));
-        this.queueHandler.add(new MinusHandler(this.calculator));
+        this.queueHandler.add(new ParenthesesHandler(
+                new PowHandler(this.calculator),
+        new AddHandler(this.calculator),
+        new NotAddHandler(this.calculator),
+        new PlusHandler(this.calculator),
+       new MinusHandler(this.calculator)
+        ));
         this.queueHandler.add(new PowHandler(this.calculator));
+        this.queueHandler.add(new AddHandler(this.calculator));
+        this.queueHandler.add(new NotAddHandler(this.calculator));
+        this.queueHandler.add(new PlusHandler(this.calculator));
+        this.queueHandler.add(new MinusHandler(this.calculator));
     }
 
     public double calc(String expression) {
+        expression = expression.replaceAll("\\s+", "");
 
-       for (IHandler handler : queueHandler) {
+        for (IHandler handler : queueHandler) {
             expression = handler.handle(expression);
-       }
-       // PriorityQueue<IHandler> queueHandler2 = new PriorityQueue<>(queueHandler);
-
+        }
+        // PriorityQueue<IHandler> queueHandler2 = new PriorityQueue<>(queueHandler);
 
 
         return Double.parseDouble(expression);

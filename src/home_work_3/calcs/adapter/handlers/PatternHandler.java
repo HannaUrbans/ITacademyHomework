@@ -25,8 +25,8 @@ public abstract class PatternHandler implements IHandler {
                 do {
                     expression = expression.replace(matcher.group(), String.valueOf(result));
                 }
-            while (expression.contains(matcher.group()));
-           }
+                while (expression.contains(matcher.group()));
+            }
         } while (isMatch);
 
         return expression;

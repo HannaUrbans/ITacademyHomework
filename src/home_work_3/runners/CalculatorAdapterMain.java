@@ -9,7 +9,7 @@ public class CalculatorAdapterMain {
 
         CalculatorAdapter calculatorAdapter = new CalculatorAdapter();
 
-        double result = calculatorAdapter.calc("5+8+10*2+2+5+5");
+        double result = calculatorAdapter.calc("4.1 + 15 * 7 + (28 / 5) ^ 2");
         System.out.println(result);
     }
 }
