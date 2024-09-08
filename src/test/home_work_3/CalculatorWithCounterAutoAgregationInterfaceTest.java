@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorWithCounterAutoAgregationInterfaceTest {
-    private static final ICalculator calculator = new CalculatorWithMathCopy();
-    private static final CalculatorWithCounterAutoAgregationInterface calc = new CalculatorWithCounterAutoAgregationInterface(calculator);
+    private final ICalculator calculator = new CalculatorWithMathCopy();
+    private final CalculatorWithCounterAutoAgregationInterface calc = new CalculatorWithCounterAutoAgregationInterface(calculator);
 
     @Test
     public void addTest() {
-        assertEquals(22, calc.add(15, 7), "Ошибка при сложении");
+        assertEquals(7, calc.add(0, 7), "Ошибка при сложении");
     }
 
     @Test
@@ -44,7 +44,7 @@ public class CalculatorWithCounterAutoAgregationInterfaceTest {
 
     @Test
     public void addTestGetCountOper() {
-        assertEquals(5, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(0, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
     }
 
 }

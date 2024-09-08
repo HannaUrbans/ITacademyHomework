@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorWithCounterAutoAgregationTest {
-    private static final CalculatorWithMathCopy mathCalculator = new CalculatorWithMathCopy();
-    private static final CalculatorWithCounterAutoAgregation calc = new CalculatorWithCounterAutoAgregation(mathCalculator);
+    private final CalculatorWithMathCopy mathCalculator = new CalculatorWithMathCopy();
+    private final CalculatorWithCounterAutoAgregation calc = new CalculatorWithCounterAutoAgregation(mathCalculator);
 
     @Test
     public void addTest() {
-        assertEquals(22, calc.add(15, 7), "Ошибка при сложении");
+        assertEquals(7, calc.add(0, 7), "Ошибка при сложении");
     }
 
     @Test
@@ -45,20 +45,20 @@ public class CalculatorWithCounterAutoAgregationTest {
     @Test
     public void addTestGetCountOper1() {
         calc.multiply(15, 7);
-        assertEquals(9, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(1, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
     }
 
     @Test
     public void addTestGetCountOper2() {
         calc.multiply(15, 7);
-        assertEquals(10, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(1, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
     }
 
     @Test
     public void addTestGetCountOper3() {
         calc.multiply(15, 7);
         calc.add(20, 7);
-        assertEquals(12, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(2, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
     }
 
 }

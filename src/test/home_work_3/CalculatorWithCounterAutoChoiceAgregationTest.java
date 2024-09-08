@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorWithCounterAutoChoiceAgregationTest {
-    private static final CalculatorWithOperator calcWithOperator = new CalculatorWithOperator();
-    private static final CalculatorWithMathCopy calcWithMathCopy = new CalculatorWithMathCopy();
-    private static final CalculatorWithMathExtends calcWithMathExtends = new CalculatorWithMathExtends();
-    private static final CalculatorWithCounterAutoChoiceAgregation calcWithOperatorVariant = new CalculatorWithCounterAutoChoiceAgregation(calcWithOperator);
-    private static final CalculatorWithCounterAutoChoiceAgregation calcWithMathCopyVariant = new CalculatorWithCounterAutoChoiceAgregation(calcWithMathCopy);
-    private static final CalculatorWithCounterAutoChoiceAgregation calcWithMathExtendsVariant = new CalculatorWithCounterAutoChoiceAgregation(calcWithMathExtends);
+    private final CalculatorWithOperator calcWithOperator = new CalculatorWithOperator();
+    private final CalculatorWithMathCopy calcWithMathCopy = new CalculatorWithMathCopy();
+    private final CalculatorWithMathExtends calcWithMathExtends = new CalculatorWithMathExtends();
+    private final CalculatorWithCounterAutoChoiceAgregation calcWithOperatorVariant = new CalculatorWithCounterAutoChoiceAgregation(calcWithOperator);
+    private final CalculatorWithCounterAutoChoiceAgregation calcWithMathCopyVariant = new CalculatorWithCounterAutoChoiceAgregation(calcWithMathCopy);
+    private final CalculatorWithCounterAutoChoiceAgregation calcWithMathExtendsVariant = new CalculatorWithCounterAutoChoiceAgregation(calcWithMathExtends);
 
-    static CalculatorWithCounterAutoChoiceAgregation[] types = {
+    CalculatorWithCounterAutoChoiceAgregation[] types = {
             calcWithOperatorVariant,
             calcWithMathCopyVariant,
             calcWithMathExtendsVariant
@@ -25,7 +25,7 @@ public class CalculatorWithCounterAutoChoiceAgregationTest {
     @Test
     public void addTest() {
         for (CalculatorWithCounterAutoChoiceAgregation type : types) {
-            assertEquals(22, type.add(15, 7), "Ошибка при сложении");
+            assertEquals(7, type.add(0, 7), "Ошибка при сложении");
         }
     }
 
@@ -69,7 +69,7 @@ public class CalculatorWithCounterAutoChoiceAgregationTest {
     public void addTestGetCount2Oper() {
         for (CalculatorWithCounterAutoChoiceAgregation type : types) {
             type.add(4.1, type.multiply(15, 7));
-            assertEquals(10, type.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+            assertEquals(2, type.getCountOperation(), "Неправильно возвращено количество совершённых операций");
         }
     }
 

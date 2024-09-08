@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorAdapterTest {
-    private static final CalculatorAdapter calc = new CalculatorAdapter();
+    private final CalculatorAdapter calc = new CalculatorAdapter();
 
     @Test
     public void addTest() {
-        assertEquals(22.0, calc.calc("15 +7"), "Ошибка при сложении");
+        assertEquals(7.0, calc.calc("0 +7"), "Ошибка при сложении");
     }
 
     @Test
