@@ -1,4 +1,4 @@
-package home_work_3.calcs.api;
+package home_work_3.calcs.adapter.oldAdapterClass;
 
 public interface ICalculatorWithoutSquareRoot {
     double divide(double a, double b);

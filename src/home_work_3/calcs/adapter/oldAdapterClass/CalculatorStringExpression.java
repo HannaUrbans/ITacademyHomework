@@ -1,6 +1,4 @@
-package home_work_3.calcs.additional;
-
-import home_work_3.calcs.api.ICalculatorWithoutSquareRoot;
+package home_work_3.calcs.adapter.oldAdapterClass;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,9 +1,6 @@
-package home_work_3.runners;
+package home_work_3.calcs.adapter.oldAdapterClass;
 
-import home_work_3.calcs.additional.CalculatorStringExpression;
-import home_work_3.calcs.additional.CalculatorWithMathCopyAdapter;
 import home_work_3.calcs.api.ICalculator;
-import home_work_3.calcs.api.ICalculatorWithoutSquareRoot;
 import home_work_3.calcs.simple.CalculatorWithMathCopy;
 
 
