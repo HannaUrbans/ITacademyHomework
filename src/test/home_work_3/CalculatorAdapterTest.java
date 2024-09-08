@@ -6,53 +6,36 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorAdapterTest {
-    private static final CalculatorAdapter calculatorAdapter = new CalculatorAdapter();
+    private static final CalculatorAdapter calc = new CalculatorAdapter();
 
     @Test
     public void addTest() {
-        String example = "15 +7";
-        double exp = 22.0;
-        double res = calculatorAdapter.calc(example);
-        assertEquals(exp, res, "Ошибка при сложении");
+        assertEquals(22.0, calc.calc("15 +7"), "Ошибка при сложении");
     }
 
     @Test
     public void minusTest() {
-        String example = "15 - 7";
-        double exp = 8.0;
-        double res = calculatorAdapter.calc(example);
-        assertEquals(exp, res, "Ошибка при вычитании");
+        assertEquals(8.0, calc.calc("15 - 7"), "Ошибка при вычитании");
     }
 
     @Test
     public void multipyTest() {
-        String example = "15 * 7";
-        double exp = 105.0;
-        double res = calculatorAdapter.calc(example);
-        assertEquals(exp, res, "Ошибка при умножении");
+        assertEquals(105.0, calc.calc("15* 7"), "Ошибка при умножении");
     }
 
     @Test
     public void divideTest() {
-        String example = "10/2";
-        double exp = 5.0;
-        double res = calculatorAdapter.calc(example);
-        assertEquals(exp, res, "Ошибка при делении");
+        assertEquals(5.0, calc.calc("10/2"), "Ошибка при делении");
     }
 
     @Test
     public void powTest() {
-        String example = "2 ^ 3";
-        double exp = 8.0;
-        double res = calculatorAdapter.calc(example);
-        assertEquals(exp, res, "Ошибка при возведении в степень");
+        assertEquals(8.0, calc.calc("2 ^ 3"), "Ошибка при возведении в степень");
     }
 
     @Test
     public void exampleTest() {
         String example = "4.1 + 15 * 7 + (28 / 5) ^ 2";
-        double exp = 140.45999999999998;
-        double res = calculatorAdapter.calc(example);
-        assertEquals(exp, res, "Ошибка в вычислениях");
+        assertEquals(140.45999999999998, calc.calc(example), "Ошибка в вычислениях");
     }
 }

@@ -1,4 +1,4 @@
-package test;
+package test.home_work_3;
 
 import home_work_3.calcs.simple.CalculatorWithOperator;
 import org.junit.jupiter.api.Assertions;
