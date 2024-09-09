@@ -126,4 +126,5 @@ public class CalculatorWithCounterAutoChoiceAgregation {
     public long getCountOperation() {
         return countOperation;
     }
+
 }

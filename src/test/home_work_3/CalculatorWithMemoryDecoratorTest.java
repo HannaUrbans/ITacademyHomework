@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorWithMemoryDecoratorTest {
     ICalculator calc = new CalculatorWithCounterAutoDecorator(new CalculatorWithMemoryDecorator(new CalculatorWithMathExtends()));
-    
+
     @Test
     public void addTest() {
         assertEquals(7, calc.add(0, 7), "Ошибка при сложении");

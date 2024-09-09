@@ -16,6 +16,10 @@ public class DataContainer<T extends Comparable<T>> implements Iterable<T> {
         }
     }
 
+    public int getSize() {
+        return data.length;
+    }
+
     @SuppressWarnings("unchecked")
     private T[] createGenericArray(int length) {
         // Используем объектный тип для создания массива

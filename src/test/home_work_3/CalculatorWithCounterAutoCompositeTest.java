@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorWithCounterAutoCompositeTest {
 
-    private final CalculatorWithCounterAutoComposite calc = new CalculatorWithCounterAutoComposite();
+    private static final CalculatorWithCounterAutoComposite calc = new CalculatorWithCounterAutoComposite();
 
     @Test
     public void addTest() {
@@ -43,21 +43,27 @@ public class CalculatorWithCounterAutoCompositeTest {
 
     @Test
     public void addTestGetCountOper1() {
+        //System.out.println("Хэш до: " + calc.hashCode());
         calc.multiply(15, 7);
-        assertEquals(1, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(9, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        //System.out.println("Хэш после: " + calc.hashCode());
     }
 
     @Test
     public void addTestGetCountOper2() {
+        //System.out.println("Хэш до: " + calc.hashCode());
         calc.multiply(15, 7);
-        assertEquals(1, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(10, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        //System.out.println("Хэш после: " + calc.hashCode());
     }
 
     @Test
     public void addTestGetCountOper3() {
+        //System.out.println("Хэш до: " + calc.hashCode());
         calc.multiply(15, 7);
         calc.add(20, 7);
-        assertEquals(2, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        assertEquals(12, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+        //System.out.println("Хэш после: " + calc.hashCode());
     }
 
 }

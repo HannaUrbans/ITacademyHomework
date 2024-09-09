@@ -7,9 +7,14 @@ public class ComparatorOverride {
     public static class IntegerComparator implements Comparator<Integer> {
         @Override
         public int compare(Integer a, Integer b) {
-            int res = nullCaseCompare(a, b);
-            if (res != 0) {
-                return res;
+            if (a == null && b == null) {
+                return 0; // Оба значения равны
+            }
+            if (a == null) {
+                return -1; // null считается меньше любого непустого значения
+            }
+            if (b == null) {
+                return 1; // непустое значение считается больше null
             }
             return a.compareTo(b);
         }
@@ -18,9 +23,14 @@ public class ComparatorOverride {
     public static class StringAlphabeticComparator implements Comparator<String> {
         @Override
         public int compare(String a, String b) {
-            int result = nullCaseCompare(a, b);
-            if (result != 0) {
-                return result;
+            if (a == null && b == null) {
+                return 0; // Оба значения равны
+            }
+            if (a == null) {
+                return -1; // null считается меньше любого непустого значения
+            }
+            if (b == null) {
+                return 1; // непустое значение считается больше null
             }
             return a.compareToIgnoreCase(b);
         }
@@ -29,24 +39,16 @@ public class ComparatorOverride {
     public static class StringLengthComparator implements Comparator<String> {
         @Override
         public int compare(String a, String b) {
-            int result = nullCaseCompare(a, b);
-            if (result != 0) {
-                return result;
+            if (a == null && b == null) {
+                return 0; // Оба значения равны
+            }
+            if (a == null) {
+                return -1; // null считается меньше любого непустого значения
+            }
+            if (b == null) {
+                return 1; // непустое значение считается больше null
             }
             return Integer.compare(a.length(), b.length());
         }
-    }
-
-    public static <T> int nullCaseCompare (T a, T b) {
-        if (a == null && b == null) {
-            return 0; // Оба значения равны
-        }
-        if (a == null) {
-            return -1; // null меньше непустого значения
-        }
-        if (b == null) {
-            return 1; // непустое значение больше null
-        }
-        return 0;
     }
 }

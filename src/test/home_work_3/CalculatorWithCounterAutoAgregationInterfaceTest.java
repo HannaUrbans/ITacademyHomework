@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorWithCounterAutoAgregationInterfaceTest {
-    private final ICalculator calculator = new CalculatorWithMathCopy();
-    private final CalculatorWithCounterAutoAgregationInterface calc = new CalculatorWithCounterAutoAgregationInterface(calculator);
+    ICalculator calculator = new CalculatorWithMathCopy();
+    CalculatorWithCounterAutoAgregationInterface calc = new CalculatorWithCounterAutoAgregationInterface(calculator);
 
     @Test
     public void addTest() {
@@ -38,13 +38,25 @@ public class CalculatorWithCounterAutoAgregationInterfaceTest {
 
     @Test
     public void exampleTest() {
-       //"4.1 + 15 * 7 + (28 / 5) ^ 2";
         assertEquals(140.45999999999998, calc.add(calc.add(4.1, calc.multiply(15, 7)), calc.raiseToPower(calc.divide(28, 5), 2)), "Ошибка в вычислениях");
     }
 
     @Test
-    public void addTestGetCountOper() {
+    public void addTestGetCountOper0() {
         assertEquals(0, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+    }
+
+    @Test
+    public void addTestGetCountOper1() {
+        calc.multiply(12, 7);
+        assertEquals(1, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
+    }
+
+    @Test
+    public void addTestGetCountOper2() {
+        calc.multiply(14, 7);
+        calc.add(20, 7);
+        assertEquals(2, calc.getCountOperation(), "Неправильно возвращено количество совершённых операций");
     }
 
 }
