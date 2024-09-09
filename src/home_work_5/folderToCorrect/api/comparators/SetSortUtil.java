@@ -1,8 +1,8 @@
-package home_work_5.api.comparators;
+package home_work_5.folderToCorrect.api.comparators;
 
 import java.util.*;
 
-import static home_work_5.api.comparators.QuickSortUtil.sortByQuickSort;
+import static home_work_5.folderToCorrect.api.comparators.QuickSortUtil.sortByQuickSort;
 
 public class SetSortUtil {
 

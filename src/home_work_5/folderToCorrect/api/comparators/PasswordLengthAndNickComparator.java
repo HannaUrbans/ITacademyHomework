@@ -1,6 +1,6 @@
-package home_work_5.api.comparators;
+package home_work_5.folderToCorrect.api.comparators;
 
-import home_work_5.Person;
+import home_work_5.folderToCorrect.Person;
 
 import java.util.Comparator;
 

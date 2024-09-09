@@ -1,17 +1,16 @@
-package home_work_5;
+package home_work_5.folderToCorrect;
 
-import home_work_5.api.ReturnUtil;
-import home_work_5.api.comparators.AgeAndNickComparator;
-import home_work_5.api.comparators.PasswordLengthAndNickComparator;
+import home_work_5.folderToCorrect.api.ReturnUtil;
+import home_work_5.folderToCorrect.api.comparators.AgeAndNickComparator;
+import home_work_5.folderToCorrect.api.comparators.PasswordLengthAndNickComparator;
 
 import java.util.*;
 import java.util.function.Supplier;
 
-import static home_work_5.Animal.generateAnimal;
-import static home_work_5.Person.generatePerson;
+import static home_work_5.folderToCorrect.Animal.generateAnimal;
 
 public class CollectionCreation {
-    private final static int quantity = 100_000;
+    private final static int quantity = 10_000;
 
 
     //метод для создания массивов Person и Animal
@@ -23,7 +22,7 @@ public class CollectionCreation {
         T[] array = (T[]) java.lang.reflect.Array.newInstance(clazz, quantity);
         for (int i = 0; i < quantity; i++) {
             if (clazz == Person.class){
-            array[i] = (T) generatePerson();}
+            array[i] = (T) Person.generatePerson();}
             else if (clazz == Animal.class){
                 array[i] = (T) generateAnimal();
             }
@@ -73,7 +72,7 @@ public class CollectionCreation {
         List<Person> linkedList = new LinkedList<>();
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < quantity; i++) {
-            Person person = generatePerson();
+            Person person = Person.generatePerson();
             linkedList.add(person);
         }
         long endTime = System.currentTimeMillis();
@@ -116,7 +115,7 @@ public class CollectionCreation {
     public static ReturnUtil<List<Person>> generatePersonArrayList2() {
         Person[] myArray = new Person[quantity];
         for (int i = 0; i < quantity; i++) {
-            myArray[i] = generatePerson();
+            myArray[i] = Person.generatePerson();
         }
 
         long startTime = System.currentTimeMillis();
@@ -153,7 +152,7 @@ public class CollectionCreation {
         Set<Person> hashSet = new HashSet<>();
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < quantity; i++) {
-            Person person = generatePerson();
+            Person person = Person.generatePerson();
             hashSet.add(person);
         }
         long endTime = System.currentTimeMillis();
@@ -187,7 +186,7 @@ public class CollectionCreation {
         Set<Person> treeSet = new TreeSet<>(new PasswordLengthAndNickComparator());
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < quantity; i++) {
-            Person person = generatePerson();
+            Person person = Person.generatePerson();
             treeSet.add(person);
         }
         long endTime = System.currentTimeMillis();

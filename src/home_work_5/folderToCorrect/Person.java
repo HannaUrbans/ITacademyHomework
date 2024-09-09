@@ -1,6 +1,6 @@
-package home_work_5;
+package home_work_5.folderToCorrect;
 
-import home_work_5.api.PersonCreationUtil;
+import home_work_5.folderToCorrect.api.PersonCreationUtil;
 
 import java.util.Objects;
 

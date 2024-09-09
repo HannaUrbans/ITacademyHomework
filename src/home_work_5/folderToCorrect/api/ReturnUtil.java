@@ -1,4 +1,4 @@
-package home_work_5.api;
+package home_work_5.folderToCorrect.api;
 
 /**
  * Класс для создания объекта, который используется в методах по созданию коллекций объектов типа Animal и Person (см.класс CollectionCreation)

@@ -1,19 +1,19 @@
-package home_work_5;
+package home_work_5.folderToCorrect;
 
-import home_work_5.api.ReturnUtil;
-import home_work_5.api.comparators.AgeAndNickComparator;
-import home_work_5.api.comparators.AgeComparator;
-import home_work_5.api.comparators.PasswordLengthAndNickComparator;
-import home_work_5.api.comparators.PasswordLengthComparator;
+import home_work_5.folderToCorrect.api.ReturnUtil;
+import home_work_5.folderToCorrect.api.comparators.AgeAndNickComparator;
+import home_work_5.folderToCorrect.api.comparators.PasswordLengthAndNickComparator;
+import home_work_5.folderToCorrect.api.comparators.PasswordLengthComparator;
 
 import java.util.*;
 
-import static home_work_5.CollectionCreation.*;
-import static home_work_5.api.IterationUtil.countDurationOfIteratorIteration;
-import static home_work_5.api.IterationUtil.countDurationOfWithConvertationIntoArrayIteration;
-import static home_work_5.api.RemovalUtil.countDurationOfRemovalWithClear;
-import static home_work_5.api.RemovalUtil.countDurationOfRemovalWithIterator;
-import static home_work_5.api.comparators.DurationSortOperations.*;
+import static home_work_5.folderToCorrect.CollectionCreation.*;
+import static home_work_5.folderToCorrect.api.IterationUtil.countDurationOfIteratorIteration;
+import static home_work_5.folderToCorrect.api.IterationUtil.countDurationOfWithConvertationIntoArrayIteration;
+import static home_work_5.folderToCorrect.api.RemovalUtil.countDurationOfRemovalWithClear;
+import static home_work_5.folderToCorrect.api.RemovalUtil.countDurationOfRemovalWithIterator;
+import static home_work_5.folderToCorrect.api.comparators.DurationSortOperations.measureDurationQuickSortComparator;
+import static home_work_5.folderToCorrect.api.comparators.DurationSortOperations.measureDurationStandardComparator;
 
 public class CollectionRunner {
     public static void main(String[] args) {
@@ -104,7 +104,7 @@ public class CollectionRunner {
         Set<Animal> animalTreeSetToRemove2 = new TreeSet<>(new AgeAndNickComparator());
         animalTreeSetToRemove2.addAll(animalTreeSet);
 
-       /** System.out.println("LINKED LIST PERSON");
+       System.out.println("LINKED LIST PERSON");
         //print(linkedPersonList);
         printResults("тестовое заполнение метода с лямбдами", generatePersonLinkedList0().getResult(), generatePersonLinkedList0().getDuration());
         printResults("заполнение через создание массива и конвертации массива в ", linkedPersonList, resultCreationPersonLinkedList1.getDuration());
@@ -121,7 +121,7 @@ public class CollectionRunner {
         System.out.println("____________________________________________");
         System.out.println();
 
-        System.out.println("LINKED LIST ANIMAL");
+      /**  System.out.println("LINKED LIST ANIMAL");
         //print(linkedAnimalList);
         printResults("заполнение через создание массива и конвертации массива в ", linkedAnimalList, resultCreationAnimalLinkedList1.getDuration());
         printResults("заполнение", linkedAnimalList, resultCreationAnimalLinkedList2.getDuration());
@@ -137,7 +137,7 @@ public class CollectionRunner {
         System.out.println("____________________________________________");
         System.out.println();
 */
-        System.out.println("ARRAYLIST PERSON");
+      /**  System.out.println("ARRAYLIST PERSON");
         //print(arrayPersonList);
         printResults("тестовое заполнение метода с лямбдами", generatePersonArrayList0().getResult(), generatePersonArrayList0().getDuration());
         printResults("заполнение через создание массива и конвертации массива в ", arrayPersonList, resultCreationPersonArrayList1.getDuration());
@@ -229,7 +229,7 @@ public class CollectionRunner {
         printResults("итерация с помощью конвертации в массив", animalTreeSet, countDurationOfWithConvertationIntoArrayIteration(animalTreeSet, Animal.class));
         printResults("удаления с помощью Итератора", animalTreeSet, countDurationOfRemovalWithIterator(animalTreeSetToRemove1));
         printResults("удаления с помощью Clear", animalTreeSet, countDurationOfRemovalWithClear(animalTreeSetToRemove2));
-        System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");
+        System.out.println("Сортировка уже встроена в коллекцию, поэтому дополнительно реализовывать её нет смысла");*/
     }
 
     private static void printResults(String operation, Collection<?> collection, long duration) {

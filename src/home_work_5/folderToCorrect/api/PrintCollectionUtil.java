@@ -1,4 +1,4 @@
-package home_work_5.api;
+package home_work_5.folderToCorrect.api;
 
 public class PrintCollectionUtil {
     /**

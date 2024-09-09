@@ -1,10 +1,10 @@
-package home_work_5.api;
+package home_work_5.folderToCorrect.api;
 
 import java.util.EnumSet;
 import java.util.Random;
 
-import static home_work_5.api.Characters.*;
-import static home_work_5.api.Characters.LATIN_LETTERS;
+import static home_work_5.folderToCorrect.api.Characters.*;
+import static home_work_5.folderToCorrect.api.Characters.LATIN_LETTERS;
 
 /**
  * Класс для генерации объекта типа Animal

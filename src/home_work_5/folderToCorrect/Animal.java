@@ -1,6 +1,6 @@
-package home_work_5;
+package home_work_5.folderToCorrect;
 
-import home_work_5.api.AnimalCreationUtil;
+import home_work_5.folderToCorrect.api.AnimalCreationUtil;
 
 import java.util.Objects;
 

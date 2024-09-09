@@ -1,4 +1,4 @@
-package home_work_5.api.comparators;
+package home_work_5.folderToCorrect.api.comparators;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,9 +1,9 @@
-package home_work_5.api;
+package home_work_5.folderToCorrect.api;
 
 import java.util.EnumSet;
 import java.util.Random;
 
-import static home_work_5.api.Characters.*;
+import static home_work_5.folderToCorrect.api.Characters.*;
 
 /**
  * Класс для генерации объекта типа Person
