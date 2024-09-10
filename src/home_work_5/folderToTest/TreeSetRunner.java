@@ -14,7 +14,6 @@ public class TreeSetRunner {
         ThreadLocalRandom rnd = ThreadLocalRandom.current();
         int quantity = 100_000;
 
-        // Добавление элементов
         long startAdd = System.currentTimeMillis();
         for (int i = 0; i < quantity; i++) {
             data.add(new Person(String.valueOf(rnd.nextInt()),
@@ -23,27 +22,24 @@ public class TreeSetRunner {
         }
         long stopAdd = System.currentTimeMillis();
 
-        // Итерация по элементам
         long startIter = System.currentTimeMillis();
         Iterator<Person> itr = data.iterator();
         while (itr.hasNext()) {
             Person p = itr.next();
             // System.out.println(p);
-            long stopIter = System.currentTimeMillis();
-
-            // Удаление элементов
-            long startRemove = System.currentTimeMillis();
-            itr = data.iterator();
-            while (itr.hasNext()) {
-                itr.next();
-                itr.remove();
-            }
-            long stopRemove = System.currentTimeMillis();
-
-            // Вывод результатов
-            System.out.println("add: " + (stopAdd - startAdd));
-            System.out.println("iter: " + (stopIter - startIter));
-            System.out.println("remove: " + (stopRemove - startRemove));
         }
+        long stopIter = System.currentTimeMillis();
+
+        long startRemove = System.currentTimeMillis();
+        itr = data.iterator();
+        while (itr.hasNext()) {
+            itr.next();
+            itr.remove();
+        }
+        long stopRemove = System.currentTimeMillis();
+
+        System.out.println("add: " + (stopAdd - startAdd));
+        System.out.println("iter: " + (stopIter - startIter));
+        System.out.println("remove: " + (stopRemove - startRemove));
     }
 }
