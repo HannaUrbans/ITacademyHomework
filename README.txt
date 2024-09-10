@@ -81,3 +81,11 @@ HOMEWORK5
 6.4 - class CollectionRunner, PrintCollectionUtil
 6.4.2 - class IterationUtil
 6.4.3 - class RemovalUtil
+
+HOMEWORK_TESTS
+папка test
+папка home_work_1 - тесты к дз 1
+папка home_work_2 - тесты к дз 2
+папка home_work_3 - тесты к дз 3 (калькуляторы)
+папка home_work_4 - тесты к дз 4 (дженерики)
+папка home_work_5 - тесты к дз 5 (коллекции)
