@@ -20,6 +20,10 @@ public class RegExSearch implements ISearchEngine {
     @Override
     public long search(String text, String word) {
 
+        if (text == null || word == null || text.isEmpty() || word.isEmpty()) {
+            throw new IllegalArgumentException("Ошибка при передаче данных");
+        }
+
         long frequency = 0;
         //1. создаем Pattern
         Pattern pattern = Pattern.compile ("\\b" + word + "\\b");
