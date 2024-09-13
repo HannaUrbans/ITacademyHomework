@@ -27,9 +27,9 @@ public class SearchEngineCaseNormalizer implements ISearchEngine {
     }
 
     public static String cutWordEnding(String inputWord) {
-        inputWord = inputWord.trim().toLowerCase();
+        inputWord = inputWord.trim();
 
-        String[] endings = {"ом", "ой", "ою", "ью", "а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я", "ь"};
+        String[] endings = {"а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я", "ь", "ом", "ем", "ой", "ей", "ёй", "ою", "ею", "ёю", "ью"};
 
         for (String ending : endings) {
             if (inputWord.length() >= 2) {
