@@ -10,6 +10,7 @@ public class RegExSearch implements ISearchEngine {
 
     private final boolean needCaseInsensitive;
 
+    //при создании объекта класса мы обязаны указать boolean
     public RegExSearch(boolean needCaseInsensitive) {
         this.needCaseInsensitive = needCaseInsensitive;
     }

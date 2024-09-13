@@ -10,16 +10,13 @@ import java.util.Set;
 import static home_work_6.FileReader.readFile;
 
 public class CollectionsGenerator {
+
     public static String[] generateStringArray(File filePath) throws IOException {
         String data = readFile(filePath);
 
-        Set<String> wordsInFile = new HashSet<>();
-
         String regex = "[ ,.&?:;!()\\\"'\n-]+";
 
-        String[] splittedArray = data.split(regex);
-
-        return splittedArray;
+        return data.split(regex);
     }
 
     public static Set<String> generateSet(File filePath) throws IOException {

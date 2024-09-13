@@ -32,12 +32,12 @@ public class EasySearch implements ISearchEngine {
             //проверяем, что слово отдельностоящее, а не часть другого
             //флаги должны на каждом круге сбрасываться, поэтому инициализация внутри
             //первая буква может быть, если стоит в начале текста или пред.символ не буква
-            boolean firstLetter = ((i == 0) || !Character.isLetter(text.charAt(i-1)));
+            boolean firstLetter = ((i == 0) || !Character.isLetter(text.charAt(i - 1)));
 
             //послед. буква может быть, если стоит в конце текста или след.символ не буква
             boolean lastLetter = ((i + word.length()) == text.length()) || !Character.isLetter(text.charAt((i + word.length())));
 
-            if (firstLetter && lastLetter){
+            if (firstLetter && lastLetter) {
                 ++frequencyOfInputWord;
             }
             //перешагиваем слово, чтобы искать дальше
