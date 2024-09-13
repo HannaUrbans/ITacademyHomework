@@ -13,13 +13,12 @@ public class CaseInsensitiveDecorator implements ISearchEngine {
     public long search(String text, String word) {
         String textToLowerCase = text.toLowerCase();
         String wordToLowerCase = word.toLowerCase();
-        long res = 0;
+
         if (searchEngine instanceof EasySearch) {
-            res = searchEngine.search(textToLowerCase, wordToLowerCase);
-        }
-        if (searchEngine instanceof RegExSearch) {
-            res = searchEngine.search(text, word);
-        }
-        return res;
+            return searchEngine.search(textToLowerCase, wordToLowerCase);
+        } else if (searchEngine instanceof RegExSearch) {
+            return searchEngine.search(text, word);
+
+        } else throw new IllegalArgumentException("Ошибка с загрузкой инструмента для поиска");
     }
 }

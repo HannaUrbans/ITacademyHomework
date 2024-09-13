@@ -22,17 +22,20 @@ public class SearchEngineCaseNormalizer implements ISearchEngine {
             sb.append(cutWordInText).append(" ");
         }
         String cutText = sb.toString().trim();
+
         return searchEngine.search(cutText, cutWordToSearch);
     }
 
     public static String cutWordEnding(String inputWord) {
-        inputWord = inputWord.trim();
+        inputWord = inputWord.trim().toLowerCase();
 
         String[] endings = {"ом", "ой", "ою", "ью", "а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я", "ь"};
 
         for (String ending : endings) {
-            if (inputWord.endsWith(ending)) {
-                return inputWord.substring(0, inputWord.length() - ending.length());
+            if (inputWord.length() >= 2) {
+                if (inputWord.endsWith(ending)) {
+                    return inputWord.substring(0, inputWord.length() - ending.length());
+                }
             }
         }
         return inputWord;

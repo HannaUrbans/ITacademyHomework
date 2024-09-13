@@ -5,15 +5,19 @@ import home_work_6.utils.ISearchEngine;
 public class SearchEngineCaseNormalizerRunner {
 
     public static void main(String[] args) {
-        ISearchEngine tmp = new RegExSearch(true);
-        ISearchEngine decoratedSearch = new SearchEngineCaseNormalizer(tmp);
+        //просмотри вариант без учета регистра
+        ISearchEngine tmp = new EasySearch();
+        ISearchEngine decoratedSearchEngine = new SearchEngineCaseNormalizer(tmp);
 
-        String text = "бабушка, бабушку, бабушки";
-        String word = "Бабушка";
+        //не работает если оканч на согл и три буквы
+        String text = "Бабушка, бабушку,  бабУшка  Бабушки И и по По по иии  ИИИ под Под пода БАБУШКА БАбушка БАБушка БАБУшка БАБУШка БАБУШКа бабушка бабушкой бАБУШКА окно  окНа зонт зонта рома ром домой ложка ложку пароход парохода ";
+        String[] words = {"Бабушку", "и", "иии", "по", "под", "окно", "ром", "ложка", "пароход", "зонт"};
 
-        long count = decoratedSearch.search(text, word);
-        System.out.println("Количество вхождений слова '" + word + "': " + count);
-        // System.out.println(cutWordEnding(word));
+        for (String word : words) {
+            long count = decoratedSearchEngine.search(text, word);
+            System.out.println("Количество вхождений слова '" + word + "': " + count);
+        }
+
     }
 
 
