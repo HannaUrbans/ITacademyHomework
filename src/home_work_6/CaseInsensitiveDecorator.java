@@ -11,6 +11,10 @@ public class CaseInsensitiveDecorator implements ISearchEngine {
 
     @Override
     public long search(String text, String word) {
+        if (text == null || word == null || text.isEmpty() || word.isEmpty()) {
+            throw new IllegalArgumentException("Ошибка при передаче данных");
+        }
+
         String textToLowerCase = text.toLowerCase();
         String wordToLowerCase = word.toLowerCase();
 
