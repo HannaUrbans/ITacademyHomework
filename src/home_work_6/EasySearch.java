@@ -2,6 +2,9 @@ package home_work_6;
 
 import home_work_6.utils.ISearchEngine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //Реализовать поиск используя метод indexOf из класса String.
 //Данный класс ищет слова с учётом регистра.
 //Поиск должен находить отдельно стоящее слово, а не часть слова
@@ -16,17 +19,15 @@ public class EasySearch implements ISearchEngine {
         System.out.println("Количество вхождений слова '" + word + "': " + count);
     }
 
-    @Override
-    public long search(String text, String word) {
-
+    public String[] foundWords(String text, String word) {
         if (text == null || word == null || text.isEmpty() || word.isEmpty()) {
             throw new IllegalArgumentException("Ошибка при передаче данных");
         }
 
-        long frequencyOfInputWord = 0;
+        List<String> listOfFoundWords = new ArrayList<>();
+
         //с какого символа ведем поиск в тексте
         int i = 0;
-
         //indexOf ищет подстроку word
         while ((i = text.indexOf(word, i)) != -1) {
             //проверяем, что слово отдельностоящее, а не часть другого
@@ -38,12 +39,17 @@ public class EasySearch implements ISearchEngine {
             boolean lastLetter = ((i + word.length()) == text.length()) || !Character.isLetter(text.charAt((i + word.length())));
 
             if (firstLetter && lastLetter) {
-                ++frequencyOfInputWord;
+                listOfFoundWords.add(word);
             }
             //перешагиваем слово, чтобы искать дальше
             i += word.length();
         }
-        return frequencyOfInputWord;
+        return listOfFoundWords.toArray(new String[0]);
+    }
+
+    @Override
+    public long search(String text, String word) {
+        return foundWords(text, word).length;
     }
 
 

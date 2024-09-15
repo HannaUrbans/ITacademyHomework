@@ -13,7 +13,7 @@ public class EasySearchTestCIS {
 
     @DisplayName("Проверка количества вхождений слова без учёта регистра")
     @Test
-    public void EasySearchTest() {
+    public void easySearchTest() {
         String text = "Однако,   Мры в течение этого времени, мры  , совершали мр только мрык простейшие операции: удаление (мры?), вставку (мры!!!), вывод в кмры консоль (мры ...). Конечно,         мры     на этом список задач, с которыми сталкиваются разработчики при использовании ArrayList, не исчерпывается.";
         String word = "мры";
         ISearchEngine tmp0 = new EasySearch();
@@ -23,7 +23,7 @@ public class EasySearchTestCIS {
 
     @DisplayName("Проверка правильности ответа в случае отсутствия совпадений")
     @Test
-    public void EasySearchNullResultTest() {
+    public void easySearchNullResultTest() {
         String text = "Мама мыла раму";
         String word = "мыл";
         ISearchEngine tmp0 = new EasySearch();

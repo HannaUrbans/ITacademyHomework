@@ -12,7 +12,7 @@ public class RegExSearchTestCS {
 
     @DisplayName("Проверка количества вхождений слова с учётом регистра")
     @Test
-    public void RegExSearchTest() {
+    public void regExSearchTest() {
         String text = "Однако,   Мры в течение этого времени, мры  , совершали мр только мрык простейшие операции: удаление (мры?), вставку (мры!!!), вывод в кмры консоль (мры ...). Конечно,         мры     на этом список задач, с которыми сталкиваются разработчики при использовании ArrayList, не исчерпывается.";
         String word = "мры";
         ISearchEngine tmp = new RegExSearch(false);
@@ -21,7 +21,7 @@ public class RegExSearchTestCS {
 
     @DisplayName("Проверка правильности ответа в случае отсутствия совпадений")
     @Test
-    public void EasySearchNullResultTest() {
+    public void regExNullResultTest() {
         String text = "Мама мыла раму";
         String word = "мыл";
         ISearchEngine tmp = new RegExSearch(false);
@@ -30,7 +30,7 @@ public class RegExSearchTestCS {
 
     @DisplayName("Проверка количества вхождений null")
     @Test
-    public void nullEasySearchTest() {
+    public void nullRegExSearchTest() {
         String text = "Однако,   Мы в течение этого времени, мы  , совершали только простейшие операции: удаление (мы?), вставку (мы!!!), вывод в консоль (мы ...). Конечно,         мы     на этом список задач, с которыми сталкиваются разработчики при использовании ArrayList, не исчерпывается.";
         String word = null;
         ISearchEngine tmp = new RegExSearch(false);
