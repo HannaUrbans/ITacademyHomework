@@ -12,7 +12,7 @@ import static home_work_6.CollectionsGenerator.generateSet;
 
 public class WordsCounter {
     public static void main(String[] args) throws IOException {
-        File filePath = new File("C:/Users/user/IdeaProjects/it-academy/JD1/HomeWork/src/home_work_6/Война и мир_книга.txt");
+        File filePath = new File("HomeWork/src/home_work_6/Война и мир_книга.txt");
 
         Set<String> words = generateSet(filePath);
         for (String word : words) {
