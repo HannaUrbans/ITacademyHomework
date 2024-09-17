@@ -26,6 +26,7 @@ public class FileJob {
         //флаг, который возвращает в главное меню (если true)
         boolean needToChooseNewFilePath = true;
         File bookPath = null;
+        File filePath = new File("HomeWork/src/home_work_6/result.txt");
 
         Scanner input = new Scanner(System.in);
         System.out.println("Список файлов:");
@@ -69,7 +70,7 @@ public class FileJob {
                     Long quantity = obj.search(text, wordToFind);
                     if (quantity >= 0) {
                         //заполняем файл в т.ч.нулевыми результатами
-                        updateResultsFile(wordToFind, quantity);
+                        updateResultsFile(wordToFind, quantity, filePath);
                     }
                     System.out.println("Количество упоминаний слова " + wordToFind + ": " + quantity);
                 }
@@ -104,10 +105,9 @@ public class FileJob {
      *
      * @param word     - слово для поиска
      * @param quantity - сколько раз встречается искомое слово
+     * @param filePath - адрес файла, в который записывается информация
      */
-    public static void updateResultsFile(String word, Long quantity)  {
-        File filePath = new File("HomeWork/src/home_work_6/result.txt");
-
+    public static void updateResultsFile(String word, Long quantity, File filePath)  {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(word + ": " + quantity + "\n");
         } catch (IOException e) {
