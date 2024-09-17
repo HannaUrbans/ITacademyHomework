@@ -89,3 +89,14 @@ HOMEWORK_TESTS
 папка home_work_3 - тесты к дз 3 (калькуляторы)
 папка home_work_4 - тесты к дз 4 (дженерики)
 папка home_work_5 - тесты к дз 5 (коллекции)
+
+HOMEWORK5
+2 - class CollectionsGenerator, class WordsCounter
+3 - utils -> ISearchEngine
+4.1 - class EasySearch
+4.2 - class RegExSearch
+4.3 - class SearchEnginePunctuationNormalizer, SearchEnginePunctuationNormalizerRunner
+4.4 - class CaseInsensitiveDecorator, CaseInsensitiveDecoratorRunner
+4.5 - class SearchEngineCaseNormalizer, SearchEngineCaseNormalizerRunner
+5 - class WarAndPeaceInputsCountRunner
+7 - class FileJob, folder books, result.txt
