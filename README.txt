@@ -100,3 +100,4 @@ HOMEWORK5
 4.5 - class SearchEngineCaseNormalizer, SearchEngineCaseNormalizerRunner
 5 - class WarAndPeaceInputsCountRunner
 7 - class FileJob, folder books, result.txt
+8 - class MultithreadSearch
